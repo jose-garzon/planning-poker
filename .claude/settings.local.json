@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:base-ui.com)",
+      "WebSearch",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --use-npm --no-git)",
+      "Bash(bun install:*)",
+      "Bash(bunx biome:*)",
+      "Bash(bunx prisma init:*)",
+      "Bash(bunx prisma generate:*)"
+    ]
+  }
+}
