@@ -2882,6 +2882,1208 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "XRW1l",
+      "x": 23120,
+      "y": 0,
+      "name": "Participant List - Desktop",
+      "width": 320,
+      "height": 480,
+      "fill": "#0F172A",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "KqBYB",
+          "name": "headerDesktop",
+          "width": "fill_container",
+          "height": 44,
+          "fill": "#1E2744",
+          "cornerRadius": 2,
+          "gap": 8,
+          "padding": [
+            12,
+            14
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "9LuNZ",
+              "name": "headerLabelDesktop",
+              "fill": "#00FF88",
+              "content": "PARTICIPANTS",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 12,
+              "fontWeight": "900"
+            },
+            {
+              "type": "text",
+              "id": "B24u3",
+              "name": "headerCountDesktop",
+              "fill": "#E2E8F0",
+              "content": "5/8",
+              "textAlign": "right",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 12,
+              "fontWeight": "900"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "27QDH",
+          "name": "participantListContainerDesktop",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "t5f7L",
+              "name": "p1RowDesktop",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                8,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "1OE96",
+                  "name": "p1DotDesktop",
+                  "fill": "#00FF88",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "UabQ3",
+                  "name": "p1NameDesktop",
+                  "fill": "#E2E8F0",
+                  "content": "Alice Chen",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "frame",
+                  "id": "5Ybm0",
+                  "name": "p1BadgeDesktop",
+                  "height": 24,
+                  "fill": "#FF006E",
+                  "cornerRadius": 2,
+                  "layout": "vertical",
+                  "padding": [
+                    4,
+                    8
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "r1qWg",
+                      "name": "p1BadgeTextDesktop",
+                      "fill": "#FFFFFF",
+                      "content": "HOST",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 9,
+                      "fontWeight": "900"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "5t8HU",
+              "name": "p2RowDesktop",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                8,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "0xuuB",
+                  "name": "p2DotDesktop",
+                  "fill": "#00FF88",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "j4TlL",
+                  "name": "p2NameDesktop",
+                  "fill": "#E2E8F0",
+                  "content": "Bob Smith",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "800"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "xEiAR",
+              "name": "p3RowDesktop",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                8,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "bcgdh",
+                  "name": "p3DotDesktop",
+                  "fill": "#00FF88",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "QGL23",
+                  "name": "p3NameDesktop",
+                  "fill": "#E2E8F0",
+                  "content": "Carol Davis",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "800"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "xXc8Z",
+              "name": "p4RowDesktop",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                8,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "vWRCS",
+                  "name": "p4DotDesktop",
+                  "fill": "#64748B",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "jZfkR",
+                  "name": "p4NameDesktop",
+                  "fill": "#E2E8F0",
+                  "content": "David Park",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "800"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "IgtR2",
+              "name": "p5RowDesktop",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                8,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "W4ObR",
+                  "name": "p5DotDesktop",
+                  "fill": "#00FF88",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "H1gGh",
+                  "name": "p5NameDesktop",
+                  "fill": "#E2E8F0",
+                  "content": "Emma Wilson",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "800"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fJG4x",
+              "name": "p6RowDesktop",
+              "width": "fill_container",
+              "height": 44,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                8,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "BRpT1",
+                  "name": "p6DotDesktop",
+                  "fill": "#64748B",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "YXYhd",
+                  "name": "p6NameDesktop",
+                  "fill": "#E2E8F0",
+                  "content": "Frank Torres",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "800"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "R9Ogy",
+          "name": "annotationDesktop",
+          "fill": "#64748B",
+          "content": "Scrollable if >6 participants",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 9,
+          "fontWeight": "700"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "H3LLn",
+      "x": 23520,
+      "y": 0,
+      "name": "Participant List - Mobile",
+      "width": 343,
+      "height": 420,
+      "fill": "#0F172A",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "SZYDE",
+          "name": "headerMobile",
+          "width": "fill_container",
+          "height": 40,
+          "fill": "#1E2744",
+          "cornerRadius": 2,
+          "gap": 8,
+          "padding": [
+            12,
+            14
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "UVNcj",
+              "name": "headerLabelMobile",
+              "fill": "#00FF88",
+              "content": "PARTICIPANTS",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 11,
+              "fontWeight": "900"
+            },
+            {
+              "type": "text",
+              "id": "Vmrrl",
+              "name": "headerCountMobile",
+              "fill": "#E2E8F0",
+              "content": "5/8",
+              "textAlign": "right",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 11,
+              "fontWeight": "900"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "L2bsJ",
+          "name": "participantListContainerMobile",
+          "width": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "lrJKR",
+              "name": "p1RowMobile",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                6,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "0nnPo",
+                  "name": "p1DotMobile",
+                  "fill": "#00FF88",
+                  "width": 7,
+                  "height": 7
+                },
+                {
+                  "type": "text",
+                  "id": "ku1Gl",
+                  "name": "p1NameMobile",
+                  "fill": "#E2E8F0",
+                  "content": "Alice Chen",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 11,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "frame",
+                  "id": "nNykp",
+                  "name": "p1BadgeMobile",
+                  "height": 20,
+                  "fill": "#FF006E",
+                  "cornerRadius": 2,
+                  "layout": "vertical",
+                  "padding": [
+                    3,
+                    6
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XkRJv",
+                      "name": "p1BadgeTextMobile",
+                      "fill": "#FFFFFF",
+                      "content": "HOST",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 8,
+                      "fontWeight": "900"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Pbi1L",
+              "name": "p2RowMobile",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                6,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "Gf9To",
+                  "name": "p2DotMobile",
+                  "fill": "#00FF88",
+                  "width": 7,
+                  "height": 7
+                },
+                {
+                  "type": "text",
+                  "id": "Oblio",
+                  "name": "p2NameMobile",
+                  "fill": "#E2E8F0",
+                  "content": "Bob Smith",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 11,
+                  "fontWeight": "800"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fUz7q",
+              "name": "p3RowMobile",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                6,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "eicX6",
+                  "name": "p3DotMobile",
+                  "fill": "#00FF88",
+                  "width": 7,
+                  "height": 7
+                },
+                {
+                  "type": "text",
+                  "id": "xyHy5",
+                  "name": "p3NameMobile",
+                  "fill": "#E2E8F0",
+                  "content": "Carol Davis",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 11,
+                  "fontWeight": "800"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "haxt1",
+              "name": "p4RowMobile",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                6,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "VSZgU",
+                  "name": "p4DotMobile",
+                  "fill": "#64748B",
+                  "width": 7,
+                  "height": 7
+                },
+                {
+                  "type": "text",
+                  "id": "jRLIR",
+                  "name": "p4NameMobile",
+                  "fill": "#E2E8F0",
+                  "content": "David Park",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 11,
+                  "fontWeight": "800"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sOOes",
+              "name": "p5RowMobile",
+              "width": "fill_container",
+              "height": 36,
+              "fill": "#1A1F3A",
+              "gap": 10,
+              "padding": [
+                6,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "7Kz8R",
+                  "name": "p5DotMobile",
+                  "fill": "#00FF88",
+                  "width": 7,
+                  "height": 7
+                },
+                {
+                  "type": "text",
+                  "id": "Ioplf",
+                  "name": "p5NameMobile",
+                  "fill": "#E2E8F0",
+                  "content": "Emma Wilson",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 11,
+                  "fontWeight": "800"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "yHZI2",
+      "x": 23903,
+      "y": 0,
+      "name": "Animation Reference - Pulsing Dot",
+      "width": 480,
+      "height": 200,
+      "fill": "#0F172A",
+      "gap": 20,
+      "padding": 20,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "oSXiy",
+          "name": "pulsingLabel",
+          "fill": "#00FF88",
+          "content": "PULSING DOT (2s loop)",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 14,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "30axx",
+          "name": "dotState1",
+          "width": 60,
+          "height": 60,
+          "fill": "#1A1F3A",
+          "cornerRadius": 4,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "5XtAO",
+              "name": "dot1",
+              "opacity": 0.6,
+              "fill": "#00FF88",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "u06dQ",
+              "name": "label1",
+              "fill": "#64748B",
+              "content": "0.6",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 9,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "nSUTl",
+          "name": "dotState2",
+          "width": 60,
+          "height": 60,
+          "fill": "#1A1F3A",
+          "cornerRadius": 4,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "7oPAg",
+              "name": "dot2",
+              "fill": "#00FF88",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "ZsvHN",
+              "name": "label2",
+              "fill": "#64748B",
+              "content": "1.0",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 9,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "94vjI",
+          "name": "dotState3",
+          "width": 60,
+          "height": 60,
+          "fill": "#1A1F3A",
+          "cornerRadius": 4,
+          "layout": "vertical",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "ellipse",
+              "id": "PkWLP",
+              "name": "dot3",
+              "opacity": 0.6,
+              "fill": "#00FF88",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "type": "text",
+              "id": "sDVCV",
+              "name": "label3",
+              "fill": "#64748B",
+              "content": "0.6",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 9,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "jDXHp",
+      "x": 23903,
+      "y": 260,
+      "name": "Animation Reference - New Participant Entrance",
+      "width": 520,
+      "height": 240,
+      "fill": "#0F172A",
+      "layout": "vertical",
+      "gap": 16,
+      "padding": 20,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "XzqDn",
+          "name": "entranceTitle",
+          "fill": "#00FF88",
+          "content": "NEW ENTRY ANIMATION (150ms ease-out)",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 14,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "pFtRw",
+          "name": "entranceStates",
+          "width": "fill_container",
+          "gap": 16,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "gRN3W",
+              "name": "entranceState1",
+              "width": 100,
+              "height": 80,
+              "fill": "#1A1F3A",
+              "cornerRadius": 2,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CCWSS",
+                  "name": "entLabel1",
+                  "fill": "#64748B",
+                  "content": "Start",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "JtBPH",
+                  "name": "entDesc1",
+                  "fill": "#64748B",
+                  "content": "Y: -20px\nOpacity: 0",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 8,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TGfSh",
+              "name": "entranceState2",
+              "width": 100,
+              "height": 80,
+              "fill": "#1A1F3A",
+              "cornerRadius": 2,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VYGCy",
+                  "name": "entLabel2",
+                  "fill": "#64748B",
+                  "content": "Midway",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "I4ba6",
+                  "name": "entDesc2",
+                  "fill": "#64748B",
+                  "content": "Y: -10px\nOpacity: 0.5",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 8,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YhLlt",
+              "name": "entranceState3",
+              "width": 100,
+              "height": 80,
+              "fill": "#1A1F3A",
+              "cornerRadius": 2,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Jjbsc",
+                  "name": "entLabel3",
+                  "fill": "#64748B",
+                  "content": "End",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "KM3JT",
+                  "name": "entDesc3",
+                  "fill": "#64748B",
+                  "content": "Y: 0\nOpacity: 1",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 8,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "xEBwW",
+      "x": 23903,
+      "y": 560,
+      "name": "Animation Reference - Offline Exit Animation",
+      "width": 520,
+      "height": 240,
+      "fill": "#0F172A",
+      "layout": "vertical",
+      "gap": 16,
+      "padding": 20,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "1WCUL",
+          "name": "exitTitle",
+          "fill": "#FF006E",
+          "content": "EXIT ANIMATION (200ms ease-in)",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 14,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "icdHH",
+          "name": "exitStates",
+          "width": "fill_container",
+          "gap": 16,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Ofteq",
+              "name": "exitState1",
+              "width": 100,
+              "height": 80,
+              "fill": "#1A1F3A",
+              "cornerRadius": 2,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "io86q",
+                  "name": "exitLabel1",
+                  "fill": "#64748B",
+                  "content": "Start",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "kkobc",
+                  "name": "exitDesc1",
+                  "fill": "#64748B",
+                  "content": "X: 0\nOpacity: 1",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 8,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HY8PA",
+              "name": "exitState2",
+              "width": 100,
+              "height": 80,
+              "fill": "#1A1F3A",
+              "cornerRadius": 2,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "hcIkR",
+                  "name": "exitLabel2",
+                  "fill": "#64748B",
+                  "content": "Midway",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "TjOto",
+                  "name": "exitDesc2",
+                  "fill": "#64748B",
+                  "content": "X: -25px\nOpacity: 0.5",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 8,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Dso4t",
+              "name": "exitState3",
+              "width": 100,
+              "height": 80,
+              "fill": "#1A1F3A",
+              "cornerRadius": 2,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "i4wl4",
+                  "name": "exitLabel3",
+                  "fill": "#64748B",
+                  "content": "End",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "VnnF6",
+                  "name": "exitDesc3",
+                  "fill": "#64748B",
+                  "content": "X: -50px\nOpacity: 0",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 8,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "tSNfU",
+      "x": 23903,
+      "y": 860,
+      "name": "Animation Reference - Status Change",
+      "width": 420,
+      "height": 200,
+      "fill": "#0F172A",
+      "layout": "vertical",
+      "gap": 16,
+      "padding": 20,
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "4iuh7",
+          "name": "statusTitle",
+          "fill": "#00FF88",
+          "content": "STATUS CHANGE (300ms fade)",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 14,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "w99Qt",
+          "name": "statusStates",
+          "width": "fill_container",
+          "gap": 20,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "nC5Bu",
+              "name": "statusOnline",
+              "width": 80,
+              "height": 80,
+              "fill": "#1A1F3A",
+              "cornerRadius": 2,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "3yAXD",
+                  "name": "dotOnline",
+                  "fill": "#00FF88",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "CHBdC",
+                  "name": "statusLabelOnline",
+                  "fill": "#00FF88",
+                  "content": "Online",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XKjRw",
+              "name": "statusOffline",
+              "width": 80,
+              "height": 80,
+              "fill": "#1A1F3A",
+              "cornerRadius": 2,
+              "layout": "vertical",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "ysU08",
+                  "name": "dotOffline",
+                  "fill": "#64748B",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "G8pCw",
+                  "name": "statusLabelOffline",
+                  "fill": "#64748B",
+                  "content": "Offline",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "3FKmk",
+      "x": 24463,
+      "y": 0,
+      "name": "Animation Guide - Participant List Component",
+      "width": 600,
+      "height": 380,
+      "fill": "#0F172A",
+      "layout": "vertical",
+      "gap": 16,
+      "padding": 24,
+      "children": [
+        {
+          "type": "text",
+          "id": "EUMBj",
+          "name": "summaryTitle",
+          "fill": "#00FF88",
+          "content": "Participant List Component - Animation Implementation Guide",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 16,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "tkDSo",
+          "name": "section1",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "6zcXy",
+              "name": "label1",
+              "fill": "#00FF88",
+              "content": "1. PULSING STATUS DOT (Online Indicator)",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "5IJXG",
+              "name": "desc1",
+              "fill": "#9CA3AF",
+              "content": "• Duration: 2 second infinite loop\n• Effect: Opacity pulse (0.6 → 1.0 → 0.6)\n• Color: Green (#00FF88) only\n• Trigger: Applied to all online participants' status dots",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tCzSY",
+          "name": "section2",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "Diy6X",
+              "name": "label2",
+              "fill": "#00FF88",
+              "content": "2. NEW PARTICIPANT ENTRANCE",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "D1gSV",
+              "name": "desc2",
+              "fill": "#9CA3AF",
+              "content": "• Duration: 150ms\n• Easing: ease-out\n• Motion: Slide from top (Y: -20px → 0) + Fade-in (0 → 1)\n• Trigger: When a new participant joins the session",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xBW9O",
+          "name": "section3",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "vAMqx",
+              "name": "label3",
+              "fill": "#FF006E",
+              "content": "3. PARTICIPANT OFFLINE EXIT",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "l9PL6",
+              "name": "desc3",
+              "fill": "#9CA3AF",
+              "content": "• Duration: 200ms\n• Easing: ease-in\n• Motion: Slide left (X: 0 → -50px) + Fade-out (1 → 0)\n• Trigger: When a participant goes offline or leaves",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "STK7u",
+          "name": "section4",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "58xDi",
+              "name": "label4",
+              "fill": "#00FF88",
+              "content": "4. STATUS CHANGE TRANSITION",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 12,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "jktCE",
+              "name": "desc4",
+              "fill": "#9CA3AF",
+              "content": "• Duration: 300ms\n• Easing: ease (smooth fade)\n• Color Change: Green ↔ Gray\n• Trigger: When online status changes (online/offline toggle)",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
     }
   ],
   "themes": {
