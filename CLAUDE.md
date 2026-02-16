@@ -1,24 +1,47 @@
-# Next.js 15 Placeholder - AI Assistant Guide
+# Planning Poker Game - AI Assistant Guide
 
-> **Purpose**: This document guides AI assistants (Claude, GitHub Copilot, etc.) on project conventions, architecture, and best practices.
+> **Purpose**: This document guides AI assistants (Claude, GitHub Copilot, etc.) on project conventions, architecture, and best practices for the Planning Poker application.
 
 ## Project Overview
 
+**Planning Poker**: A real-time voting game for agile teams to estimate user stories. Host creates a session, participants join via link, select Fibonacci cards to vote, and see results animated in real-time.
+
 ### Tech Stack
-- **Framework**: Next.js 15 with App Router
+- **Framework**: Next.js 15 with App Router (fullstack)
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS + CSS Modules
-- **Database**: Prisma ORM (SQLite for dev, PostgreSQL for prod)
-- **Testing**: Vitest (unit) + Playwright (E2E)
+- **Animations**: Framer Motion (smooth 60fps interactions)
+- **State Management**: Zustand (lightweight)
+- **Real-Time**: Server-Sent Events (SSE) from API routes
+- **Data Storage**: Client-side IndexedDB/LocalStorage (no database)
+- **Testing**: Vitest (unit) + Playwright (E2E) - balanced approach
 - **Linting/Formatting**: Biome
-- **Package Manager**: Bun (REQUIRED - see user preferences in auto memory)
-- **UI Components**: Base UI Components
+- **Package Manager**: Bun (REQUIRED)
 
 ### Architecture Pattern
-- **Vertical Slice Architecture**: Features organized by domain modules
+- **Vertical Slice Architecture**: Features organized by domain modules (`poker-session/`, `voting/`, etc.)
+- **Component Pattern**: Presentational (dumb) + Container (smart) components
 - **Service Layer Pattern**: Business logic in service files
 - **Type-Safe API Routes**: Zod validation for all inputs
-- **Server Components First**: Use Client Components only when needed
+- **Optimistic Updates**: UI updates immediately, reconciles with server
+- **Real-Time First**: SSE for multiplayer coordination with <50ms latency target
+- **Single Entry Point Per Module**: Each module exports ONE entry point:
+  - **Page modules** (full pages): Export `module.page.tsx` → Used by `app/[path]/page.tsx`
+  - **Feature modules** (components): Export `feature.component.tsx` → Used by other modules
+  - App Router files contain ONLY routing logic, no component code
+
+## Base UI Components Reference
+
+**IMPORTANT**: When building visual UI components, consult `/llms.txt` in the project root for Base UI component documentation.
+
+The `llms.txt` file provides:
+- Component library overview (Button, Dialog, Menu, Tabs, etc.)
+- Styling patterns with Tailwind CSS
+- Animation composition patterns
+- Forms and accessibility guidelines
+- TypeScript best practices
+
+Use Base UI as the foundation for all UI components, then enhance with Framer Motion animations and Tailwind CSS styling.
 
 ## Development Guidelines
 
@@ -123,8 +146,52 @@ const getUser = async id => {
 - **Constants**: UPPER_SNAKE_CASE (`API_URL`, `MAX_RETRIES`)
 - **Types/Interfaces**: PascalCase (`User`, `ApiResponse`)
 
-### Component Patterns
-Prefer Server Components:
+### Component Patterns: Presentational + Container
+
+**Container Components** (Smart) - Handle state and logic:
+```tsx
+'use client';
+import { useVoting } from '../hooks/useVoting';
+import { CardSelectorPresentation } from './CardSelectorPresentation';
+
+export function CardSelector() {
+  const { selectedCard, isLoading, castVote } = useVoting();
+  return (
+    <CardSelectorPresentation
+      cards={FIBONACCI_SEQUENCE}
+      selectedCard={selectedCard}
+      onSelect={castVote}
+      isLoading={isLoading}
+    />
+  );
+}
+```
+
+**Presentational Components** (Dumb) - Pure UI with no logic:
+```tsx
+import { motion } from 'framer-motion';
+
+interface CardProps {
+  value: string;
+  selected: boolean;
+  onClick: () => void;
+}
+
+export function Card({ value, selected, onClick }: CardProps) {
+  return (
+    <motion.button
+      whileHover={{ scale: 1.08 }}
+      whileTap={{ scale: 0.92 }}
+      onClick={onClick}
+      className={cn('px-6 py-4 rounded-lg', selected && 'bg-blue-600')}
+    >
+      {value}
+    </motion.button>
+  );
+}
+```
+
+**When to use Server Components** (for static content):
 
 ```tsx
 // app/users/page.tsx (Server Component - default)
@@ -139,6 +206,234 @@ export function UserList({ users }: { users: User[] }) {
   const [filter, setFilter] = useState('');
   // Client-side interactivity
 }
+```
+
+## Animation Standards (Framer Motion)
+
+**CRITICAL**: Every interaction must feel smooth. Target 60fps for all animations. Focus on:
+- Card selection feedback (click animation)
+- Micro-interactions on buttons (hover, tap)
+- Smooth state transitions
+
+### Card Selection Animation
+
+```tsx
+// Smooth scale feedback with spring physics
+<motion.button
+  whileHover={{ scale: 1.08 }}           // Expand on hover
+  whileTap={{ scale: 0.92 }}             // Compress on click
+  transition={{
+    type: 'spring',
+    stiffness: 300,                       // Bouncy feel
+    damping: 20,
+  }}
+  layout                                  // Smooth FLIP layout changes
+>
+  {cardValue}
+</motion.button>
+```
+
+### Button Micro-Interactions
+
+```tsx
+// Color change on hover/tap with smooth transition
+<motion.button
+  whileHover={{ backgroundColor: 'rgba(59, 130, 246, 0.9)' }}
+  whileTap={{ backgroundColor: 'rgba(59, 130, 246, 0.7)' }}
+  transition={{ duration: 0.2 }}
+>
+  {label}
+</motion.button>
+```
+
+### Vote Results Reveal (Stagger)
+
+```tsx
+// Stagger animation when results appear
+<motion.div layout>
+  {votes.map((vote, i) => (
+    <motion.div
+      key={vote.id}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: i * 0.05 }}    // Stagger: 50ms between each
+      layout
+    >
+      {vote.value}
+    </motion.div>
+  ))}
+</motion.div>
+```
+
+### Animation Guidelines
+
+- ✅ Use `spring` physics for natural feel (not linear `duration`)
+- ✅ Keep animations under 300ms for snappy feedback
+- ✅ Use `transform` and `opacity` (GPU accelerated)
+- ✅ Use Framer Motion's `layout` prop to avoid reflow
+- ✅ Test on real devices; desktop DevTools can be misleading
+- ✅ Profile with Chrome DevTools Performance to verify 60fps
+- ❌ Never animate `left`, `top`, `width`, `height` (causes reflow)
+- ❌ Never create new animation variants in render (define outside component)
+- ❌ Never block animations with heavy computation (use `startTransition`)
+
+## Real-Time SSE & Optimistic Updates
+
+### Server-Sent Events (API Route)
+
+```typescript
+// app/api/sessions/[sessionId]/stream/route.ts
+import { NextRequest } from 'next/server';
+
+const clients = new Map<string, ReadableStreamDefaultController>();
+
+export async function GET(req: NextRequest, { params }: { params: { sessionId: string } }) {
+  const { sessionId } = params;
+
+  const stream = new ReadableStream({
+    start(controller) {
+      clients.set(`${sessionId}-${crypto.randomUUID()}`, controller);
+
+      // Keep alive with 30s heartbeat
+      const interval = setInterval(() => {
+        controller.enqueue('data: {"type":"heartbeat"}\n\n');
+      }, 30000);
+
+      return () => {
+        clearInterval(interval);
+        clients.delete(sessionId);
+      };
+    },
+  });
+
+  return new Response(stream, {
+    headers: {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive',
+    },
+  });
+}
+
+// Broadcast votes to all participants
+export function broadcastVote(sessionId: string, vote: Vote) {
+  const event = `data: ${JSON.stringify({ type: 'vote', vote })}\n\n`;
+  clients.forEach((controller, clientId) => {
+    if (clientId.startsWith(sessionId)) {
+      controller.enqueue(event);
+    }
+  });
+}
+```
+
+### Client-Side SSE Hook
+
+```typescript
+// modules/shared/hooks/useSSE.ts
+import { useEffect } from 'react';
+
+export function useSSE(sessionId: string, onMessage: (event: any) => void) {
+  useEffect(() => {
+    const eventSource = new EventSource(`/api/sessions/${sessionId}/stream`);
+
+    eventSource.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type !== 'heartbeat') {
+        onMessage(data);
+      }
+    };
+
+    eventSource.onerror = () => {
+      eventSource.close();
+      // Reconnect after 3 seconds
+      setTimeout(() => new EventSource(`/api/sessions/${sessionId}/stream`), 3000);
+    };
+
+    return () => eventSource.close();
+  }, [sessionId, onMessage]);
+}
+```
+
+### Optimistic Updates Pattern
+
+Always update UI immediately, reconcile with server:
+
+```typescript
+// Cast vote immediately, retry on failure
+const castVote = useCallback(async (cardValue: string) => {
+  // 1. Update UI optimistically
+  selectCard(cardValue);
+
+  // 2. Send to server in background
+  try {
+    const response = await fetch(`/api/sessions/${sessionId}/votes`, {
+      method: 'POST',
+      body: JSON.stringify({ cardValue }),
+    });
+
+    if (!response.ok) {
+      // Server rejected: revert UI
+      selectCard(null);
+      throw new Error('Vote failed');
+    }
+
+    // 3. Server confirms, update with confirmed data
+    const confirmedVote = await response.json();
+    syncVotes(confirmedVote);
+  } catch (error) {
+    // Queue vote for retry when online
+    queueOfflineVote(sessionId, cardValue);
+  }
+}, [sessionId]);
+```
+
+## Client-Side Data Storage (IndexedDB)
+
+Host stores sessions and votes in IndexedDB for persistence across refreshes.
+
+```typescript
+// modules/shared/lib/indexedDB.ts
+export class PokerDB {
+  async saveSessions(sessions: PokerSession[]) {
+    const tx = this.db.transaction('sessions', 'readwrite');
+    sessions.forEach(s => tx.objectStore('sessions').put(s));
+    return new Promise((resolve, reject) => {
+      tx.oncomplete = resolve;
+      tx.onerror = () => reject(tx.error);
+    });
+  }
+
+  async getSessions(): Promise<PokerSession[]> {
+    return new Promise((resolve, reject) => {
+      const request = this.db.transaction('sessions').objectStore('sessions').getAll();
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+  }
+}
+```
+
+## State Management: Zustand
+
+Use Zustand for lightweight, predictable state:
+
+```typescript
+// modules/voting/store/votingStore.ts
+import { create } from 'zustand';
+
+interface VotingState {
+  selectedCard: string | null;
+  votes: Record<string, Vote>;
+  selectCard: (value: string | null) => void;
+  syncVotes: (votes: Record<string, Vote>) => void;
+}
+
+export const useVotingStore = create<VotingState>((set) => ({
+  selectedCard: null,
+  votes: {},
+  selectCard: (value) => set({ selectedCard: value }),
+  syncVotes: (votes) => set({ votes }),
+}));
 ```
 
 ## Testing Strategy
@@ -251,14 +546,14 @@ export async function POST(request: NextRequest) {
 }
 ```
 
-### Database Migrations
+### Data Management
+
+Planning Poker stores data client-side in IndexedDB. No database migrations needed.
+
 ```bash
-bun run db:migrate        # Create and apply migration
-bun run db:migrate:deploy # Deploy migrations (production)
-bun run db:generate       # Generate Prisma client
-bun run db:studio         # Open Prisma Studio
-bun run db:seed           # Seed database
-bun run db:reset          # Reset database (dev only)
+# Data is stored locally in the host's browser
+# Sessions persist across page refreshes via IndexedDB
+# Participants' votes are sent via SSE in real-time
 ```
 
 ### Running the Application
@@ -301,12 +596,15 @@ Setup: `bunx simple-git-hooks` (runs automatically on install)
 - ❌ Never commit `.env` files
 - ❌ Avoid `dangerouslySetInnerHTML`
 
-### Performance
-- ✅ Use Server Components by default
-- ✅ Optimize images with Next.js `<Image />`
-- ✅ Implement proper caching strategies
-- ✅ Use dynamic imports for large components
-- ❌ Avoid client-side data fetching when possible
+### Performance (Animations First)
+- ✅ **Smooth animations**: 60fps target for all micro-interactions
+- ✅ **SSE latency**: <50ms for vote broadcasts to all participants
+- ✅ **Bundle size**: Keep JavaScript small; Framer Motion + Zustand is ~60kb
+- ✅ **GPU acceleration**: Use `transform` and `opacity` only in animations
+- ✅ **Profile before shipping**: Use Chrome DevTools Performance tab
+- ✅ **Test on real devices**: Mobile phones and tablets, not just desktop
+- ❌ Never animate `left`, `top`, `width`, `height` (causes reflow)
+- ❌ Don't compute expensive logic during animation frames (use `startTransition`)
 
 ### Accessibility
 - ✅ Use semantic HTML elements
@@ -345,9 +643,11 @@ See `docs/README.md` for the complete documentation index.
 
 ## Environment Variables
 
-Required environment variables (see `.env.example`):
-- `DATABASE_URL`: Database connection string
+Optional environment variables (see `.env.example`):
 - `NODE_ENV`: Environment (development, test, production)
+- `NEXT_PUBLIC_APP_URL`: Public URL for SSE stream (needed for self-hosted)
+
+No database configuration needed. All data is client-side.
 
 ## Git Workflow
 
@@ -367,19 +667,245 @@ chore: update dependencies
 - `feature/*`: Feature branches
 - `fix/*`: Bug fix branches
 
-## AI Assistant Tips
+## Planning Poker Specific Patterns
+
+### Folder Structure Example
+
+```
+modules/
+  poker-session/                    # PAGE MODULE (full page)
+    poker-session.page.tsx          # ⭐ ENTRY POINT (used by app/session/page.tsx)
+    components/
+      host-view/                    # Component folder (container + UI)
+        host-view-container.tsx     # Smart: state & logic
+        host-view-ui.tsx            # Dumb: pure presentation
+        host-view-container.test.tsx
+        host-view-container.style.css  # Optional: reusable tailwind
+      session-join-form/            # Component folder
+        session-join-form-container.tsx
+        session-join-form-ui.tsx
+        session-join-form-container.test.tsx
+      session-list/                 # Component folder
+        session-list-container.tsx
+        session-list-ui.tsx
+        session-list-container.test.tsx
+    hooks/
+      useSessionSync.ts             # Real-time sync with server
+      useSessionStorage.ts          # IndexedDB persistence
+    services/
+      sessionService.ts             # Create, delete, list sessions
+      sseService.ts                # SSE connection management
+    types/
+      index.ts                     # PokerSession, Participant types
+    lib/
+      sessionStorage.ts            # IndexedDB helper functions
+
+  voting/                           # FEATURE MODULE (component)
+    voting-deck.component.tsx       # ⭐ ENTRY POINT (used by other modules)
+    components/
+      card-selector/                # Component folder (container + UI)
+        card-selector-container.tsx # Smart: state & vote logic
+        card-selector-ui.tsx        # Dumb: card grid presentation
+        card-selector-container.test.tsx
+      card/                        # Component folder
+        card-container.tsx         # Smart: animation & click logic
+        card-ui.tsx                # Dumb: styled card display
+        card-container.test.tsx
+        card-container.style.css
+      vote-results/                # Component folder
+        vote-results-container.tsx
+        vote-results-ui.tsx
+        vote-results-container.test.tsx
+        vote-results-container.style.css
+    hooks/
+      useVoting.ts                # Vote state (Zustand) + sync
+    services/
+      votingService.ts            # Vote validation, vote logic
+    types/
+      index.ts                   # Vote, VoteEvent types
+
+  shared/
+    components/
+      button/                       # Component folder
+        button-container.tsx        # Smart: click handlers, state
+        button-ui.tsx               # Dumb: styled button
+        button-container.test.tsx
+        button-container.style.css
+      modal/                        # Component folder
+        modal-container.tsx         # Smart: open/close state
+        modal-ui.tsx                # Dumb: modal structure
+        modal-container.test.tsx
+        modal-container.style.css
+    hooks/
+      useSSE.ts                     # Generic SSE hook
+      useIndexedDB.ts               # Generic IndexedDB hook
+    lib/
+      indexedDB.ts                  # IndexedDB utilities
+      fibonacci.ts                  # Card values constant
+```
+
+### Component Folder Structure
+
+**Each component lives in its own folder** with container (smart) and UI (dumb) files:
+
+```
+component-name/
+  component-name-container.tsx      # Smart: state, hooks, logic
+  component-name-ui.tsx             # Dumb: pure presentation
+  component-name-container.test.tsx # Tests
+  component-name-container.style.css# Optional: reusable tailwind classes
+```
+
+**Why this structure?**
+- ✅ One component per folder makes it easy to find
+- ✅ Container/UI split makes components reusable
+- ✅ Tests co-located with the component
+- ✅ Styles stay with the component, easy to locate
+
+**Building UI Components**:
+1. **Check `/llms.txt`** for Base UI components that match your needs
+2. **Use Base UI as foundation** for unstyled, accessible components
+3. **Enhance with Framer Motion** for animations (smooth micro-interactions)
+4. **Style with Tailwind CSS** for the visual design
+5. **Keep presentational components pure** (just display logic)
+
+**Example: Card Component**
+
+```tsx
+// modules/voting/components/card/card-container.tsx
+'use client';
+import { motion } from 'framer-motion';
+import { CardUI } from './card-ui';
+
+interface CardContainerProps {
+  value: string;
+  isSelected: boolean;
+  onSelect: () => void;
+}
+
+export function CardContainer({ value, isSelected, onSelect }: CardContainerProps) {
+  return (
+    <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.92 }}>
+      <CardUI value={value} isSelected={isSelected} onClick={onSelect} />
+    </motion.div>
+  );
+}
+```
+
+```tsx
+// modules/voting/components/card/card-ui.tsx
+interface CardUIProps {
+  value: string;
+  isSelected: boolean;
+  onClick: () => void;
+}
+
+export function CardUI({ value, isSelected, onClick }: CardUIProps) {
+  return (
+    <button
+      onClick={onClick}
+      className={cn(
+        'px-6 py-4 rounded-lg font-bold',
+        isSelected ? 'bg-blue-600 text-white' : 'bg-gray-200',
+      )}
+    >
+      {value}
+    </button>
+  );
+}
+```
+
+### Entry Point Pattern
+
+**Page Module** (`poker-session.page.tsx`):
+```tsx
+// modules/poker-session/poker-session.page.tsx
+'use client';
+import { SessionList } from './components/SessionList';
+import { useSessionStorage } from './hooks/useSessionStorage';
+
+export function PokerSessionPage() {
+  const { sessions } = useSessionStorage();
+  return <SessionList sessions={sessions} />;
+}
+```
+
+**Used in App Router** (`app/session/page.tsx`):
+```tsx
+// app/session/page.tsx - ONLY ROUTING LOGIC
+import { PokerSessionPage } from '@/modules/poker-session/poker-session.page';
+
+export default function SessionPage() {
+  return <PokerSessionPage />;
+}
+```
+
+**Feature Component** (`voting-deck.component.tsx`):
+```tsx
+// modules/voting/voting-deck.component.tsx
+'use client';
+import { CardSelector } from './components/CardSelector';
+import { VoteResults } from './components/VoteResults';
+import { useVoting } from './hooks/useVoting';
+
+export function VotingDeck() {
+  const { selectedCard, votes } = useVoting();
+  return (
+    <>
+      <CardSelector />
+      {votes.length > 0 && <VoteResults votes={votes} />}
+    </>
+  );
+}
+```
+
+**Used by Other Modules**:
+```tsx
+// modules/poker-session/components/HostView.tsx
+import { VotingDeck } from '@/modules/voting/voting-deck.component';
+
+export function HostView({ sessionId }: { sessionId: string }) {
+  return (
+    <div>
+      <h1>Session {sessionId}</h1>
+      <VotingDeck />
+    </div>
+  );
+}
+```
+
+### Module Dependencies
+
+- `poker-session` manages sessions and participants (page module)
+- `voting` handles card selection and vote sync (feature module)
+- `shared` provides reusable hooks and utilities
+- Server routes in `app/api/` call service functions
+- App router files (`app/*/page.tsx`) only contain routing logic, import entry points from modules
+
+### Critical Paths to Test (E2E)
+
+1. Host creates session → Gets shareable link
+2. Participant joins session via link → Sees available cards
+3. Participant clicks card → Selection animates smoothly
+4. Host sees all votes update in real-time (SSE)
+5. Host reveals votes → Results animate in
+6. Host can delete session → Clears IndexedDB
+
+## AI Assistant Tips for Planning Poker
 
 When generating code:
-1. ✅ Always use Bun commands (not npm/yarn/pnpm)
-2. ✅ Follow the service layer pattern
-3. ✅ Use TypeScript strict mode
-4. ✅ Add proper error handling
-5. ✅ Validate inputs with Zod
-6. ✅ Prefer Server Components
-7. ✅ Follow Biome formatting rules
-8. ✅ Write tests for new features
-9. ❌ Don't add unnecessary dependencies
-10. ❌ Don't over-engineer solutions
+1. ✅ **Animations first**: Every interaction must feel smooth (60fps)
+2. ✅ **Real-time sync**: Use optimistic updates + SSE for multiplayer
+3. ✅ **Client-side storage**: Persist to IndexedDB, survive refresh
+4. ✅ **Always use Bun** (not npm/yarn/pnpm)
+5. ✅ **Vertical slice**: Organize by feature (poker-session, voting)
+6. ✅ **Presentational + Container**: Split components for reusability
+7. ✅ **TypeScript strict mode**: No `any` types
+8. ✅ **Error handling**: Offline support, retry with backoff
+9. ✅ **Test critical flows**: Host → join → vote → results
+10. ❌ Don't animate `left/top` (use `transform`)
+11. ❌ Don't block animations with heavy computation
+12. ❌ Don't over-engineer; KISS principle applies
 
 ## Additional Resources
 
