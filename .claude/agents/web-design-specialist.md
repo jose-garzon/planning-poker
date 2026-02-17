@@ -2,7 +2,7 @@
 name: web-design-specialist
 description: "Use for design work: creating UI mockups in design.pen, reviewing visual design for accessibility and hierarchy, defining color palettes, animation specs, and crafting the game-like experience."
 tools: All tools
-model: opus
+model: sonnet
 color: purple
 memory: project
 skills:
