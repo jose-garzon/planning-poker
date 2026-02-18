@@ -94,6 +94,8 @@ X-AXIS POSITION MAP (1920px wide frames)
 - **Mobile Layouts**: 0, 2900
 - **Mobile State Screens**: 0, 4050
 - **Desktop State Screens**: 0, 5290
+- **Voting UI Mobile**: 0, 7080 (row title at y:7000)
+- **Voting UI Desktop**: 0, 8280 (row title at y:8200)
 
 ## New Animated State Screens Details
 
@@ -260,4 +262,23 @@ Each desktop state screen has:
 - **DskExpiredView**: 480px centered card (#1E2744), padding 56/64, gold accent bar at bottom (2px #FFB800)
 - **DskErrorView**: Toast banner spans full width at top, 600px toast inner wrap, session layout beneath unchanged; footer disabled reveal btn uses #1A1F3A bg + #64748B text
 - All: Framer Motion spring (stiff:300 damp:20) for entrances, prefers-reduced-motion shows static content
+
+## Voting UI Screens (Y: 7000 and Y: 8200 Rows) -- Added 2026-02-17
+
+### Mobile Voting (Y: 7080 Row) — 390x844, x: 0, 530, 1060
+
+IDs: **VotMob1** (0,7080), **VotMob2** (530,7080), **VotMob3** (1060,7080)
+Row title at y:7000 (magenta), labels at y:7050, annotation boxes at y:7970 (390px wide)
+Card specs: 110x80px, 3-column rows, #1A1F3A default fill, #64748B border
+Selected: #00FF88 fill, #0F172A text, checkmark, #00CC6A 3px border
+Timer ring: 80px circle — green (>60s), yellow (30-60s), red+pulse (<30s, 2D0A0A fill)
+
+### Desktop Voting (Y: 8280 Row) — 1920x1080, x: 0, 2000, 4000
+
+IDs: **VotDsk1** (0,8280), **VotDsk2** (2000,8280), **VotDsk3** (4000,8280)
+Row title at y:8200, labels at y:8250, annotation boxes at y:9400 (640px wide)
+Layout: 60px top bar + 280px sidebar + main content
+Card specs: 100x100px, 6-column rows (2 rows cover all 12 Fibonacci values)
+VotDsk2: SELECTED (card 8) + HOVER (card 13, #222B4A/#00FF88) shown simultaneously for dev ref
+VotDsk3: disabled — cards #111827/#374151, selected card dims to #1A3A2A, badge shows magenta REVEALING VOTES...
 

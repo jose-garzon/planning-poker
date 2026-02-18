@@ -25,6 +25,8 @@ The design.pen file uses X-axis positioning to organize screens horizontally:
 - y: 2900 row - **MOBILE-FIRST LAYOUTS** (4 screens, added 2026-02-17)
 - y: 4050 row - **MOBILE STATE SCREENS** (Loading/Expired/Error, added 2026-02-17)
 - y: 5290 row - **DESKTOP STATE SCREENS** (Loading/Expired/Error, added 2026-02-17)
+- y: 7000 row - **VOTING UI MOBILE** (No Selection/Selected/Expiring Timer, added 2026-02-17)
+- y: 8200 row - **VOTING UI DESKTOP** (No Selection/Selected/Disabled, added 2026-02-17)
 
 ## Animated Participant List Screens (Latest Addition)
 Four new full-page context screens demonstrate Participant List animations in real interface:
@@ -186,13 +188,8 @@ All screens include:
   - Mobile row at y: 2900, spaced at x: 0, 530, 1060, 1590
   - Mobile state row at y: 4050, spaced at x: 0, 530, 1060
   - Desktop state row at y: 5290, spaced at x: 0, 2000, 4000
+  - Voting UI mobile row at y: 7000, spaced at x: 0, 530, 1060
+  - Voting UI desktop row at y: 8200, spaced at x: 0, 2000, 4000
   - All existing screens preserved
 
-**Memory documentation** (this directory):
-- All files ready for persistent memory across sessions
-- Complete specifications for developers
-- Visual references for designers
-
-## Development Handoff
-
-All screens have annotation boxes with animation specs. Reference animation-specs.md and visual-reference.md for full implementation details. All animations need `prefers-reduced-motion` fallbacks.
+**Dev handoff**: All screens have annotation boxes. See animation-specs.md and visual-reference.md. All animations need `prefers-reduced-motion` fallbacks.

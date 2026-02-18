@@ -238,6 +238,30 @@
       ]
     },
     {
+      "type": "text",
+      "id": "DskStatesRowTitle",
+      "x": 11725,
+      "y": 1342,
+      "name": "desktopStatesRowTitle",
+      "fill": "#FF006E",
+      "content": "DESKTOP STATES: LOADING / EXPIRED / ERROR (1920x1080)",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": 22,
+      "fontWeight": "900"
+    },
+    {
+      "type": "text",
+      "id": "DskLoadingLabel",
+      "x": 11725,
+      "y": 1392,
+      "name": "labelDskLoading",
+      "fill": "#00FF88",
+      "content": "1. DESKTOP LOADING STATE — 1920x1080",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": 16,
+      "fontWeight": "900"
+    },
+    {
       "type": "frame",
       "id": "xVZ8g",
       "x": 2000,
@@ -1690,174 +1714,9 @@
     },
     {
       "type": "frame",
-      "id": "JoinPageMobile",
-      "x": 5022,
-      "y": 1442,
-      "name": "Join Page Mobile",
-      "width": 375,
-      "height": 812,
-      "fill": "#0F172A",
-      "layout": "vertical",
-      "justifyContent": "center",
-      "alignItems": "center",
-      "children": [
-        {
-          "type": "frame",
-          "id": "bgJoinMobile",
-          "name": "bgJoinMobile",
-          "width": "fill_container",
-          "height": "fill_container",
-          "fill": "linear-gradient(180deg, #0F172A 0%, #1A2847 100%)"
-        },
-        {
-          "type": "frame",
-          "id": "joinCardMobile",
-          "name": "joinCardMobile",
-          "width": "fill_container",
-          "fill": "#0F172A",
-          "cornerRadius": 4,
-          "layout": "vertical",
-          "gap": 28,
-          "padding": [
-            48,
-            28
-          ],
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "frame",
-              "id": "joinHeaderMobile",
-              "name": "joinHeaderMobile",
-              "width": "fill_container",
-              "layout": "vertical",
-              "gap": 12,
-              "padding": [
-                0,
-                0,
-                16,
-                0
-              ],
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "joinTitleMobile",
-                  "name": "joinTitleMobile",
-                  "fill": "#00FF88",
-                  "content": "You're invited!",
-                  "textAlign": "center",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 28,
-                  "fontWeight": "900"
-                },
-                {
-                  "type": "text",
-                  "id": "joinSubtitleMobile",
-                  "name": "joinSubtitleMobile",
-                  "fill": "#94A3B8",
-                  "content": "Join Alex's Planning\nPoker session",
-                  "lineHeight": 1.3,
-                  "textAlign": "center",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 15,
-                  "fontWeight": "600"
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "joinFormMobile",
-              "name": "joinFormMobile",
-              "width": "fill_container",
-              "layout": "vertical",
-              "gap": 14,
-              "children": [
-                {
-                  "type": "text",
-                  "id": "joinLabelMobile",
-                  "name": "joinLabelMobile",
-                  "fill": "#00FF88",
-                  "content": "YOUR NAME:",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 12,
-                  "fontWeight": "800"
-                },
-                {
-                  "type": "frame",
-                  "id": "joinInputMobile",
-                  "name": "joinInputMobile",
-                  "width": "fill_container",
-                  "height": 56,
-                  "fill": "#1E2744",
-                  "cornerRadius": 4,
-                  "layout": "vertical",
-                  "padding": [
-                    14,
-                    18
-                  ],
-                  "justifyContent": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "joinInputPlaceholderMobile",
-                      "name": "joinInputPlaceholderMobile",
-                      "fill": "#64748B",
-                      "content": "Enter your name...",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 15,
-                      "fontWeight": "700"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "joinSubmitBtnMobile",
-              "name": "joinSubmitBtnMobile",
-              "width": "fill_container",
-              "height": 56,
-              "fill": "#FF006E",
-              "cornerRadius": 4,
-              "layout": "vertical",
-              "padding": [
-                14,
-                40
-              ],
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "joinSubmitTextMobile",
-                  "name": "joinSubmitTextMobile",
-                  "fill": "#0F172A",
-                  "content": "[ JOIN ]",
-                  "textAlign": "center",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 18,
-                  "fontWeight": "900"
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "joinBorderMobile",
-              "name": "joinBorderMobile",
-              "width": "fill_container",
-              "height": 2,
-              "fill": "#00FF88",
-              "cornerRadius": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
       "id": "ErrorPageDesktop",
-      "x": 3251,
-      "y": -3780,
+      "x": 11725,
+      "y": 0,
       "name": "Error Page Desktop",
       "width": 1920,
       "height": 1080,
@@ -1978,8 +1837,8 @@
     {
       "type": "frame",
       "id": "ErrorPageMobile",
-      "x": 5269,
-      "y": -3780,
+      "x": 13743,
+      "y": 0,
       "name": "Error Page Mobile",
       "width": 375,
       "height": 812,
@@ -2886,8 +2745,8 @@
     {
       "type": "frame",
       "id": "XRW1l",
-      "x": 6240,
-      "y": -3780,
+      "x": 6326,
+      "y": -2501,
       "name": "Participant List - Desktop",
       "width": 320,
       "height": 480,
@@ -3187,8 +3046,8 @@
     {
       "type": "frame",
       "id": "H3LLn",
-      "x": 6640,
-      "y": -3780,
+      "x": 6726,
+      "y": -2501,
       "name": "Participant List - Mobile",
       "width": 343,
       "height": 420,
@@ -3444,8 +3303,8 @@
     {
       "type": "frame",
       "id": "yHZI2",
-      "x": 7023,
-      "y": -3780,
+      "x": 7109,
+      "y": -2501,
       "name": "Animation Reference - Pulsing Dot",
       "width": 480,
       "height": 200,
@@ -3567,8 +3426,8 @@
     {
       "type": "frame",
       "id": "jDXHp",
-      "x": 7023,
-      "y": -3520,
+      "x": 7109,
+      "y": -2241,
       "name": "Animation Reference - New Participant Entrance",
       "width": 520,
       "height": 240,
@@ -3705,8 +3564,8 @@
     {
       "type": "frame",
       "id": "xEBwW",
-      "x": 7023,
-      "y": -3220,
+      "x": 7109,
+      "y": -1941,
       "name": "Animation Reference - Offline Exit Animation",
       "width": 520,
       "height": 240,
@@ -3843,8 +3702,8 @@
     {
       "type": "frame",
       "id": "tSNfU",
-      "x": 7023,
-      "y": -2920,
+      "x": 7109,
+      "y": -1641,
       "name": "Animation Reference - Status Change",
       "width": 420,
       "height": 200,
@@ -3943,8 +3802,8 @@
     {
       "type": "frame",
       "id": "3FKmk",
-      "x": 7583,
-      "y": -3780,
+      "x": 7669,
+      "y": -2501,
       "name": "Animation Guide - Participant List Component",
       "width": 600,
       "height": 380,
@@ -6912,474 +6771,9 @@
     },
     {
       "type": "frame",
-      "id": "MobVotingView",
-      "x": 530,
-      "y": 2900,
-      "name": "Mobile Voting View",
-      "width": 390,
-      "height": 844,
-      "fill": "#0F172A",
-      "layout": "vertical",
-      "children": [
-        {
-          "type": "frame",
-          "id": "MobVoteBg",
-          "name": "bgMobVoting",
-          "width": "fill_container",
-          "height": "fill_container",
-          "fill": "linear-gradient(180deg, #0F172A 0%, #1A2847 100%)"
-        },
-        {
-          "type": "frame",
-          "id": "MobVoteHeader",
-          "name": "headerMobVoting",
-          "width": "fill_container",
-          "fill": "#1E2744",
-          "layout": "vertical",
-          "gap": 8,
-          "padding": [
-            16,
-            20
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "MobVoteStoryLabel",
-              "name": "votingStoryLabel",
-              "fill": "#FF006E",
-              "content": "NOW VOTING",
-              "fontFamily": "Bricolage Grotesque",
-              "fontSize": 11,
-              "fontWeight": "900"
-            },
-            {
-              "type": "text",
-              "id": "MobVoteStoryTitle",
-              "name": "votingStoryTitle",
-              "fill": "#E2E8F0",
-              "content": "User login flow redesign",
-              "fontFamily": "Bricolage Grotesque",
-              "fontSize": 18,
-              "fontWeight": "900"
-            },
-            {
-              "type": "text",
-              "id": "MobVoteStoryDesc",
-              "name": "votingStoryDesc",
-              "fill": "#64748B",
-              "content": "Redesign the authentication flow to support SSO and magic links",
-              "fontFamily": "Bricolage Grotesque",
-              "fontSize": 12,
-              "fontWeight": "600"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "MobVoteVoterStatus",
-          "name": "voterStatusBar",
-          "width": "fill_container",
-          "height": 36,
-          "fill": "#0F172A",
-          "gap": 8,
-          "padding": [
-            8,
-            20
-          ],
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "text",
-              "id": "MobVoteVoterIcon",
-              "name": "voterIcon",
-              "content": "🗳",
-              "fontFamily": "Inter",
-              "fontSize": 14,
-              "fontWeight": "normal"
-            },
-            {
-              "type": "text",
-              "id": "MobVoteVoterCount",
-              "name": "voterCount",
-              "fill": "#00FF88",
-              "content": "3 of 4 voted",
-              "fontFamily": "Bricolage Grotesque",
-              "fontSize": 12,
-              "fontWeight": "700"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "MobVoteCardGrid",
-          "name": "cardGrid",
-          "width": "fill_container",
-          "layout": "vertical",
-          "gap": 12,
-          "padding": [
-            24,
-            20
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "MobVoteRow1",
-              "name": "cardRow1",
-              "width": "fill_container",
-              "gap": 12,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "MobVoteCard0",
-                  "name": "card0",
-                  "width": 165,
-                  "height": 88,
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobVoteCard0Val",
-                      "name": "card0Value",
-                      "fill": "#E2E8F0",
-                      "content": "0",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 28,
-                      "fontWeight": "900"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "MobVoteCard1",
-                  "name": "card1",
-                  "width": 165,
-                  "height": 88,
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobVoteCard1Val",
-                      "name": "card1Value",
-                      "fill": "#E2E8F0",
-                      "content": "1",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 28,
-                      "fontWeight": "900"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "MobVoteRow2",
-              "name": "cardRow2",
-              "width": "fill_container",
-              "gap": 12,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "MobVoteCard2",
-                  "name": "card2",
-                  "width": 165,
-                  "height": 88,
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobVoteCard2Val",
-                      "name": "card2Value",
-                      "fill": "#E2E8F0",
-                      "content": "2",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 28,
-                      "fontWeight": "900"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "MobVoteCard3",
-                  "name": "card3Selected",
-                  "width": 165,
-                  "height": 88,
-                  "fill": "#0F172A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobVoteCard3Val",
-                      "name": "card3Value",
-                      "fill": "#00FF88",
-                      "content": "3",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 28,
-                      "fontWeight": "900"
-                    },
-                    {
-                      "type": "text",
-                      "id": "MobVoteCard3Check",
-                      "name": "card3Checkmark",
-                      "fill": "#00FF88",
-                      "content": "SELECTED",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 9,
-                      "fontWeight": "900"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "MobVoteRow3",
-              "name": "cardRow3",
-              "width": "fill_container",
-              "gap": 12,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "MobVoteCard5",
-                  "name": "card5",
-                  "width": 165,
-                  "height": 88,
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobVoteCard5Val",
-                      "name": "card5Value",
-                      "fill": "#E2E8F0",
-                      "content": "5",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 28,
-                      "fontWeight": "900"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "MobVoteCard8",
-                  "name": "card8",
-                  "width": 165,
-                  "height": 88,
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobVoteCard8Val",
-                      "name": "card8Value",
-                      "fill": "#E2E8F0",
-                      "content": "8",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 28,
-                      "fontWeight": "900"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "MobVoteRow4",
-              "name": "cardRow4",
-              "width": "fill_container",
-              "gap": 12,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "MobVoteCard13",
-                  "name": "card13",
-                  "width": 165,
-                  "height": 88,
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobVoteCard13Val",
-                      "name": "card13Value",
-                      "fill": "#E2E8F0",
-                      "content": "13",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 28,
-                      "fontWeight": "900"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "MobVoteCard21",
-                  "name": "card21",
-                  "width": 165,
-                  "height": 88,
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobVoteCard21Val",
-                      "name": "card21Value",
-                      "fill": "#E2E8F0",
-                      "content": "21",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 28,
-                      "fontWeight": "900"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "MobVoteBottomBar",
-          "name": "bottomBarVoting",
-          "width": "fill_container",
-          "fill": "#1E2744",
-          "layout": "vertical",
-          "gap": 8,
-          "padding": [
-            16,
-            20,
-            32,
-            20
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "MobVoteConfirmRow",
-              "name": "confirmRow",
-              "width": "fill_container",
-              "height": 48,
-              "fill": "#0F172A",
-              "cornerRadius": 6,
-              "gap": 10,
-              "padding": [
-                12,
-                16
-              ],
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "MobVoteConfirmIcon",
-                  "name": "confirmIcon",
-                  "fill": "#00FF88",
-                  "content": "✓",
-                  "fontFamily": "Inter",
-                  "fontSize": 16,
-                  "fontWeight": "bold"
-                },
-                {
-                  "type": "text",
-                  "id": "MobVoteConfirmTxt",
-                  "name": "confirmText",
-                  "fill": "#E2E8F0",
-                  "content": "Your vote: 3",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 14,
-                  "fontWeight": "700"
-                },
-                {
-                  "type": "text",
-                  "id": "MobVoteChangeTxt",
-                  "name": "changeVoteText",
-                  "fill": "#FF006E",
-                  "content": "CHANGE",
-                  "textAlign": "right",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 12,
-                  "fontWeight": "900"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "id": "MobVoteLabel",
-      "x": 530,
-      "y": 2860,
-      "name": "labelMobVoting",
-      "fill": "#00FF88",
-      "content": "2. MOBILE VOTING VIEW — 390x844",
-      "fontFamily": "Bricolage Grotesque",
-      "fontSize": 16,
-      "fontWeight": "900"
-    },
-    {
-      "type": "frame",
-      "id": "MobVoteAnnot",
-      "x": 530,
-      "y": 3770,
-      "name": "annotationMobVoting",
-      "width": 390,
-      "fill": "#1A1F3A",
-      "cornerRadius": 6,
-      "layout": "vertical",
-      "gap": 8,
-      "padding": 16,
-      "children": [
-        {
-          "type": "text",
-          "id": "MobVoteAnnotTitle",
-          "name": "annotTitleVote",
-          "fill": "#00FF88",
-          "content": "ANIMATION SPECS",
-          "fontFamily": "Bricolage Grotesque",
-          "fontSize": 12,
-          "fontWeight": "900"
-        },
-        {
-          "type": "text",
-          "id": "MobVoteAnnotDesc",
-          "name": "annotDescVote",
-          "fill": "#9CA3AF",
-          "content": "• Cards: whileTap scale 0.95 (spring stiff:300 damp:20)\n• NO whileHover on mobile (touch only)\n• Selected card: border glow #00FF88 + scale pop 200ms\n• Card grid: staggered entrance 50ms/card\n• Vote confirm: slide-up 200ms ease-out\n• Voter count: number animation on change\n• Header: fixed, does not scroll",
-          "fontFamily": "Bricolage Grotesque",
-          "fontSize": 10,
-          "fontWeight": "normal"
-        }
-      ]
-    },
-    {
-      "type": "frame",
       "id": "MobResultsView",
-      "x": 1060,
-      "y": 2900,
+      "x": 2080,
+      "y": 2915,
       "name": "Mobile Results View",
       "width": 390,
       "height": 844,
@@ -8061,8 +7455,8 @@
     {
       "type": "text",
       "id": "MobResLabel",
-      "x": 1060,
-      "y": 2860,
+      "x": 2080,
+      "y": 2875,
       "name": "labelMobResults",
       "fill": "#00FF88",
       "content": "3. MOBILE RESULTS VIEW — 390x844",
@@ -8073,8 +7467,8 @@
     {
       "type": "frame",
       "id": "MobResAnnot",
-      "x": 1060,
-      "y": 3770,
+      "x": 2080,
+      "y": 3785,
       "name": "annotationMobResults",
       "width": 390,
       "fill": "#1A1F3A",
@@ -8108,8 +7502,8 @@
     {
       "type": "frame",
       "id": "MobJoinView",
-      "x": 1590,
-      "y": 2900,
+      "x": 5007,
+      "y": 1448,
       "name": "Mobile Join Session",
       "width": 390,
       "height": 844,
@@ -8317,9 +7711,21 @@
     },
     {
       "type": "text",
+      "id": "MobStatesRowTitle",
+      "x": 13743,
+      "y": 1342,
+      "name": "statesRowTitle",
+      "fill": "#FF006E",
+      "content": "STATES: LOADING / EXPIRED / ERROR (390x844)",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": 22,
+      "fontWeight": "900"
+    },
+    {
+      "type": "text",
       "id": "MobJoinLabel",
-      "x": 1590,
-      "y": 2860,
+      "x": 5007,
+      "y": 1408,
       "name": "labelMobJoin",
       "fill": "#00FF88",
       "content": "4. MOBILE JOIN SESSION — 390x844",
@@ -8328,10 +7734,22 @@
       "fontWeight": "900"
     },
     {
+      "type": "text",
+      "id": "MobLoadingLabel",
+      "x": 13743,
+      "y": 1392,
+      "name": "labelMobLoading",
+      "fill": "#00FF88",
+      "content": "1. LOADING STATE — 390x844",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": 16,
+      "fontWeight": "900"
+    },
+    {
       "type": "frame",
       "id": "MobJoinAnnot",
-      "x": 1590,
-      "y": 3770,
+      "x": 5007,
+      "y": 2318,
       "name": "annotationMobJoin",
       "width": 390,
       "fill": "#1A1F3A",
@@ -8363,46 +7781,10 @@
       ]
     },
     {
-      "type": "text",
-      "id": "MobRowTitle",
-      "x": 0,
-      "y": 2810,
-      "name": "mobileLayoutsRowTitle",
-      "fill": "#FF006E",
-      "content": "MOBILE-FIRST LAYOUTS (iPhone 14 — 390x844)",
-      "fontFamily": "Bricolage Grotesque",
-      "fontSize": 22,
-      "fontWeight": "900"
-    },
-    {
-      "type": "text",
-      "id": "MobStatesRowTitle",
-      "x": 0,
-      "y": 3960,
-      "name": "statesRowTitle",
-      "fill": "#FF006E",
-      "content": "STATES: LOADING / EXPIRED / ERROR (390x844)",
-      "fontFamily": "Bricolage Grotesque",
-      "fontSize": 22,
-      "fontWeight": "900"
-    },
-    {
-      "type": "text",
-      "id": "MobLoadingLabel",
-      "x": 0,
-      "y": 4010,
-      "name": "labelMobLoading",
-      "fill": "#00FF88",
-      "content": "1. LOADING STATE — 390x844",
-      "fontFamily": "Bricolage Grotesque",
-      "fontSize": 16,
-      "fontWeight": "900"
-    },
-    {
       "type": "frame",
       "id": "MobLoadingView",
-      "x": 0,
-      "y": 4050,
+      "x": 13743,
+      "y": 1432,
       "name": "Mobile Loading State",
       "width": 390,
       "height": 844,
@@ -8542,10 +7924,22 @@
       ]
     },
     {
+      "type": "text",
+      "id": "MobRowTitle",
+      "x": 0,
+      "y": 2810,
+      "name": "mobileLayoutsRowTitle",
+      "fill": "#FF006E",
+      "content": "MOBILE-FIRST LAYOUTS (iPhone 14 — 390x844)",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": 22,
+      "fontWeight": "900"
+    },
+    {
       "type": "frame",
       "id": "MobLoadAnnot",
-      "x": 0,
-      "y": 4920,
+      "x": 13743,
+      "y": 2302,
       "name": "annotationMobLoading",
       "width": 390,
       "fill": "#1A1F3A",
@@ -8579,8 +7973,8 @@
     {
       "type": "text",
       "id": "MobExpiredLabel",
-      "x": 530,
-      "y": 4010,
+      "x": 13743,
+      "y": 2899,
       "name": "labelMobExpired",
       "fill": "#00FF88",
       "content": "2. EXPIRED SESSION — 390x844",
@@ -8591,8 +7985,8 @@
     {
       "type": "frame",
       "id": "MobExpiredView",
-      "x": 530,
-      "y": 4050,
+      "x": 13743,
+      "y": 2939,
       "name": "Mobile Expired Session",
       "width": 390,
       "height": 844,
@@ -8762,8 +8156,8 @@
     {
       "type": "frame",
       "id": "MobExpAnnot",
-      "x": 530,
-      "y": 4920,
+      "x": 13743,
+      "y": 3809,
       "name": "annotationMobExpired",
       "width": 390,
       "fill": "#1A1F3A",
@@ -8795,651 +8189,10 @@
       ]
     },
     {
-      "type": "text",
-      "id": "MobErrorLabel",
-      "x": 1060,
-      "y": 4010,
-      "name": "labelMobError",
-      "fill": "#00FF88",
-      "content": "3. ERROR STATE (TOAST + FALLBACK) — 390x844",
-      "fontFamily": "Bricolage Grotesque",
-      "fontSize": 16,
-      "fontWeight": "900"
-    },
-    {
-      "type": "frame",
-      "id": "MobErrorView",
-      "x": 1060,
-      "y": 4050,
-      "name": "Mobile Error State",
-      "width": 390,
-      "height": 844,
-      "fill": "#0F172A",
-      "layout": "vertical",
-      "justifyContent": "space_between",
-      "children": [
-        {
-          "type": "frame",
-          "id": "MobErrToast",
-          "name": "errorToast",
-          "width": "fill_container",
-          "fill": "#1A1F3A",
-          "layout": "vertical",
-          "children": [
-            {
-              "type": "frame",
-              "id": "MobErrToastInner",
-              "name": "toastInner",
-              "width": "fill_container",
-              "gap": 10,
-              "padding": [
-                14,
-                16
-              ],
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "MobErrToastBorder",
-                  "name": "toastRedBorder",
-                  "width": 4,
-                  "height": 44,
-                  "fill": "#EF4444",
-                  "cornerRadius": 2
-                },
-                {
-                  "type": "text",
-                  "id": "MobErrToastIcon",
-                  "name": "toastIcon",
-                  "fill": "#EF4444",
-                  "content": "⚠",
-                  "fontFamily": "Inter",
-                  "fontSize": 18,
-                  "fontWeight": "bold"
-                },
-                {
-                  "type": "frame",
-                  "id": "MobErrToastTextGroup",
-                  "name": "toastTextGroup",
-                  "layout": "vertical",
-                  "gap": 2,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobErrToastTitle",
-                      "name": "toastTitle",
-                      "fill": "#EF4444",
-                      "content": "Session Error",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 13,
-                      "fontWeight": "900"
-                    },
-                    {
-                      "type": "text",
-                      "id": "MobErrToastMsg",
-                      "name": "toastMessage",
-                      "fill": "#E2E8F0",
-                      "content": "Failed to load session. Starting fresh.",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "600"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "MobErrToastDismiss",
-                  "name": "toastDismissBtn",
-                  "width": 32,
-                  "height": 32,
-                  "fill": "#0F172A",
-                  "cornerRadius": 4,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobErrToastX",
-                      "name": "toastDismissX",
-                      "fill": "#64748B",
-                      "content": "✕",
-                      "fontFamily": "Inter",
-                      "fontSize": 14,
-                      "fontWeight": "bold"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "MobErrToastProgress",
-              "name": "toastAutoProgress",
-              "width": 260,
-              "height": 2,
-              "fill": "#EF4444",
-              "cornerRadius": 1
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "MobErrStatusBar",
-          "name": "statusBarSpacer",
-          "width": "fill_container",
-          "height": 44,
-          "fill": "#0F172A"
-        },
-        {
-          "type": "frame",
-          "id": "MobErrSessionHeader",
-          "name": "sessionHeader",
-          "width": "fill_container",
-          "fill": "#1E2744",
-          "layout": "vertical",
-          "gap": 8,
-          "padding": [
-            16,
-            20
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "MobErrHeaderTop",
-              "name": "headerTopRow",
-              "width": "fill_container",
-              "gap": 10,
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "MobErrSessTitle",
-                  "name": "sessionTitle",
-                  "fill": "#E2E8F0",
-                  "content": "New Session",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 18,
-                  "fontWeight": "900"
-                },
-                {
-                  "type": "frame",
-                  "id": "MobErrShareBtn",
-                  "name": "shareButton",
-                  "width": 44,
-                  "height": 44,
-                  "fill": "#FF006E",
-                  "cornerRadius": 4,
-                  "layout": "vertical",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobErrShareIcon",
-                      "name": "shareIcon",
-                      "fill": "#FFFFFF",
-                      "content": "↗",
-                      "fontFamily": "Inter",
-                      "fontSize": 20,
-                      "fontWeight": "bold"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "MobErrIdRow",
-              "name": "sessionIdRow",
-              "width": "fill_container",
-              "height": 32,
-              "fill": "#0F172A",
-              "cornerRadius": 4,
-              "gap": 8,
-              "padding": [
-                6,
-                12
-              ],
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "text",
-                  "id": "MobErrIdLabel",
-                  "name": "sessionIdLabel",
-                  "fill": "#64748B",
-                  "content": "ID:",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 11,
-                  "fontWeight": "700"
-                },
-                {
-                  "type": "text",
-                  "id": "MobErrIdVal",
-                  "name": "sessionIdValue",
-                  "fill": "#00FF88",
-                  "content": "new-xyz-789",
-                  "fontFamily": "monospace",
-                  "fontSize": 12,
-                  "fontWeight": "600"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "MobErrContent",
-          "name": "emptySessionContent",
-          "width": "fill_container",
-          "layout": "vertical",
-          "gap": 16,
-          "padding": [
-            16,
-            20
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "MobErrPartSection",
-              "name": "participantsSection",
-              "width": "fill_container",
-              "layout": "vertical",
-              "gap": 8,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "MobErrPartHeader",
-                  "name": "participantsHeader",
-                  "width": "fill_container",
-                  "height": 36,
-                  "gap": 8,
-                  "padding": [
-                    0,
-                    4
-                  ],
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobErrPartIcon",
-                      "name": "partIcon",
-                      "content": "👥",
-                      "fontFamily": "Inter",
-                      "fontSize": 14,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "text",
-                      "id": "MobErrPartLabel",
-                      "name": "partLabel",
-                      "fill": "#00FF88",
-                      "content": "PLAYERS",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
-                    },
-                    {
-                      "type": "text",
-                      "id": "MobErrPartCount",
-                      "name": "partCount",
-                      "fill": "#E2E8F0",
-                      "content": "1/8",
-                      "textAlign": "right",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "MobErrPartList",
-                  "name": "participantsList",
-                  "width": "fill_container",
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 2,
-                  "padding": 8,
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "MobErrP1",
-                      "name": "participant1Row",
-                      "width": "fill_container",
-                      "height": 48,
-                      "fill": "#0F172A",
-                      "cornerRadius": 6,
-                      "gap": 10,
-                      "padding": [
-                        10,
-                        14
-                      ],
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "ellipse",
-                          "id": "MobErrP1Dot",
-                          "name": "p1StatusDot",
-                          "fill": "#00FF88",
-                          "width": 10,
-                          "height": 10
-                        },
-                        {
-                          "type": "text",
-                          "id": "MobErrP1Avatar",
-                          "name": "p1Avatar",
-                          "content": "👤",
-                          "fontFamily": "Inter",
-                          "fontSize": 16,
-                          "fontWeight": "normal"
-                        },
-                        {
-                          "type": "text",
-                          "id": "MobErrP1Name",
-                          "name": "p1Name",
-                          "fill": "#E2E8F0",
-                          "content": "You (Host)",
-                          "fontFamily": "Bricolage Grotesque",
-                          "fontSize": 14,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "frame",
-                          "id": "MobErrP1Badge",
-                          "name": "p1HostBadge",
-                          "height": 22,
-                          "fill": "#FF006E",
-                          "cornerRadius": 4,
-                          "layout": "vertical",
-                          "padding": [
-                            3,
-                            8
-                          ],
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "MobErrP1BadgeTxt",
-                              "name": "p1HostBadgeText",
-                              "fill": "#FFFFFF",
-                              "content": "HOST",
-                              "fontFamily": "Bricolage Grotesque",
-                              "fontSize": 9,
-                              "fontWeight": "900"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "MobErrEmptySlot",
-                      "name": "emptyParticipantSlot",
-                      "width": "fill_container",
-                      "height": 48,
-                      "fill": "#0F172A",
-                      "cornerRadius": 6,
-                      "layout": "vertical",
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "MobErrEmptyText",
-                          "name": "emptySlotText",
-                          "fill": "#64748B",
-                          "content": "Waiting for players...",
-                          "fontFamily": "Bricolage Grotesque",
-                          "fontSize": 12,
-                          "fontWeight": "600"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "MobErrStorySection",
-              "name": "storiesSection",
-              "width": "fill_container",
-              "layout": "vertical",
-              "gap": 8,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "MobErrStoryHeader",
-                  "name": "storiesHeader",
-                  "width": "fill_container",
-                  "height": 36,
-                  "gap": 8,
-                  "padding": [
-                    0,
-                    4
-                  ],
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobErrStoryIcon",
-                      "name": "storyIcon",
-                      "content": "📋",
-                      "fontFamily": "Inter",
-                      "fontSize": 14,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "text",
-                      "id": "MobErrStoryLabel",
-                      "name": "storyLabel",
-                      "fill": "#FF006E",
-                      "content": "STORIES",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
-                    },
-                    {
-                      "type": "text",
-                      "id": "MobErrStoryCount",
-                      "name": "storyCount",
-                      "fill": "#E2E8F0",
-                      "content": "0",
-                      "textAlign": "right",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "MobErrStoryEmpty",
-                  "name": "emptyStoriesCard",
-                  "width": "fill_container",
-                  "height": 120,
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 8,
-                  "layout": "vertical",
-                  "gap": 8,
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobErrStoryEmptyIcon",
-                      "name": "emptyStoryIcon",
-                      "content": "📝",
-                      "fontFamily": "Inter",
-                      "fontSize": 24,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "text",
-                      "id": "MobErrStoryEmptyText",
-                      "name": "emptyStoryText",
-                      "fill": "#64748B",
-                      "content": "No stories yet. Add one to start.",
-                      "textAlign": "center",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 13,
-                      "fontWeight": "600"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "MobErrBottomBar",
-          "name": "bottomActionBar",
-          "width": "fill_container",
-          "fill": "#1E2744",
-          "layout": "vertical",
-          "gap": 10,
-          "padding": [
-            16,
-            20,
-            32,
-            20
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "MobErrBtnRow",
-              "name": "buttonRow",
-              "width": "fill_container",
-              "gap": 10,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "MobErrAddBtn",
-                  "name": "addStoryButton",
-                  "height": 48,
-                  "fill": "#FF006E",
-                  "cornerRadius": 6,
-                  "layout": "vertical",
-                  "padding": [
-                    12,
-                    24
-                  ],
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobErrAddBtnTxt",
-                      "name": "addStoryBtnText",
-                      "fill": "#FFFFFF",
-                      "content": "+ ADD STORY",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 13,
-                      "fontWeight": "900"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "MobErrRevealBtn",
-                  "name": "revealVotesButton",
-                  "height": 48,
-                  "fill": "#1A1F3A",
-                  "cornerRadius": 6,
-                  "layout": "vertical",
-                  "padding": [
-                    12,
-                    24
-                  ],
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "MobErrRevealBtnTxt",
-                      "name": "revealVotesBtnText",
-                      "fill": "#64748B",
-                      "content": "REVEAL VOTES",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 13,
-                      "fontWeight": "900"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
-      "id": "MobErrAnnot",
-      "x": 1060,
-      "y": 4920,
-      "name": "annotationMobError",
-      "width": 390,
-      "fill": "#1A1F3A",
-      "cornerRadius": 6,
-      "layout": "vertical",
-      "gap": 8,
-      "padding": 16,
-      "children": [
-        {
-          "type": "text",
-          "id": "MobErrAnnotTitle",
-          "name": "annotTitleErr",
-          "fill": "#EF4444",
-          "content": "ANIMATION SPECS — ERROR TOAST + FALLBACK",
-          "fontFamily": "Bricolage Grotesque",
-          "fontSize": 12,
-          "fontWeight": "900"
-        },
-        {
-          "type": "text",
-          "id": "MobErrAnnotDesc",
-          "name": "annotDescErr",
-          "fill": "#9CA3AF",
-          "content": "• Toast entrance: translateY -100% → 0%\n  - Duration: 300ms, ease-out\n  - Red left border (#EF4444) for severity\n• Progress bar: width shrinks 100% → 0% over 5s\n  - Linear timing, red (#EF4444)\n• Auto-dismiss: fade-out after 5s (200ms ease-in)\n• Dismiss X button: whileTap scale 0.9\n• Session content behind: fade-in 400ms (delayed 200ms)\n  - Content appears in fresh/empty state\n• Reveal Votes btn: disabled state (#1A1F3A bg, #64748B text)\n  - Not interactive until stories exist\n• prefers-reduced-motion: toast appears instantly, no slide",
-          "fontFamily": "Bricolage Grotesque",
-          "fontSize": 10,
-          "fontWeight": "normal"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "id": "DskStatesRowTitle",
-      "x": 0,
-      "y": 5200,
-      "name": "desktopStatesRowTitle",
-      "fill": "#FF006E",
-      "content": "DESKTOP STATES: LOADING / EXPIRED / ERROR (1920x1080)",
-      "fontFamily": "Bricolage Grotesque",
-      "fontSize": 22,
-      "fontWeight": "900"
-    },
-    {
-      "type": "text",
-      "id": "DskLoadingLabel",
-      "x": 0,
-      "y": 5250,
-      "name": "labelDskLoading",
-      "fill": "#00FF88",
-      "content": "1. DESKTOP LOADING STATE — 1920x1080",
-      "fontFamily": "Bricolage Grotesque",
-      "fontSize": 16,
-      "fontWeight": "900"
-    },
-    {
       "type": "frame",
       "id": "DskLoadingView",
-      "x": 0,
-      "y": 5290,
+      "x": 11725,
+      "y": 1432,
       "name": "Desktop Loading State",
       "width": 1920,
       "height": 1080,
@@ -9448,14 +8201,6 @@
       "justifyContent": "center",
       "alignItems": "center",
       "children": [
-        {
-          "type": "frame",
-          "id": "DskLoadBg",
-          "name": "bgDskLoading",
-          "width": "fill_container",
-          "height": "fill_container",
-          "fill": "linear-gradient(180deg, #0F172A 0%, #1A2847 100%)"
-        },
         {
           "type": "frame",
           "id": "DskLoadContent",
@@ -9492,8 +8237,6 @@
               "width": 120,
               "height": 120,
               "cornerRadius": 60,
-              "stroke": "#1E2744",
-              "strokeWidth": 6,
               "layout": "vertical",
               "justifyContent": "center",
               "alignItems": "center",
@@ -9505,8 +8248,6 @@
                   "width": 120,
                   "height": 120,
                   "cornerRadius": 60,
-                  "stroke": "#00FF88",
-                  "strokeWidth": 6,
                   "layout": "vertical",
                   "justifyContent": "center",
                   "alignItems": "center",
@@ -9599,8 +8340,8 @@
     {
       "type": "frame",
       "id": "DskLoadAnnot",
-      "x": 0,
-      "y": 6400,
+      "x": 11725,
+      "y": 2542,
       "name": "annotationDskLoading",
       "width": 640,
       "fill": "#1A1F3A",
@@ -9634,8 +8375,8 @@
     {
       "type": "text",
       "id": "DskExpiredLabel",
-      "x": 2000,
-      "y": 5250,
+      "x": 11744,
+      "y": 2884,
       "name": "labelDskExpired",
       "fill": "#00FF88",
       "content": "2. DESKTOP EXPIRED SESSION — 1920x1080",
@@ -9646,8 +8387,8 @@
     {
       "type": "frame",
       "id": "DskExpiredView",
-      "x": 2000,
-      "y": 5290,
+      "x": 11744,
+      "y": 2924,
       "name": "Desktop Expired Session",
       "width": 1920,
       "height": 1080,
@@ -9658,14 +8399,6 @@
       "children": [
         {
           "type": "frame",
-          "id": "DskExpBg",
-          "name": "bgDskExpired",
-          "width": "fill_container",
-          "height": "fill_container",
-          "fill": "linear-gradient(180deg, #0F172A 0%, #1A2847 100%)"
-        },
-        {
-          "type": "frame",
           "id": "DskExpCard",
           "name": "expiredCard",
           "width": 480,
@@ -9673,7 +8406,10 @@
           "cornerRadius": 16,
           "layout": "vertical",
           "gap": 32,
-          "padding": [56, 64],
+          "padding": [
+            56,
+            64
+          ],
           "alignItems": "center",
           "children": [
             {
@@ -9741,7 +8477,10 @@
               "fill": "#0F172A",
               "cornerRadius": 6,
               "layout": "vertical",
-              "padding": [8, 20],
+              "padding": [
+                8,
+                20
+              ],
               "justifyContent": "center",
               "alignItems": "center",
               "children": [
@@ -9816,8 +8555,8 @@
     {
       "type": "frame",
       "id": "DskExpAnnot",
-      "x": 2000,
-      "y": 6400,
+      "x": 11744,
+      "y": 4034,
       "name": "annotationDskExpired",
       "width": 640,
       "fill": "#1A1F3A",
@@ -9850,477 +8589,140 @@
     },
     {
       "type": "text",
-      "id": "DskErrorLabel",
-      "x": 4000,
-      "y": 5250,
-      "name": "labelDskError",
-      "fill": "#00FF88",
-      "content": "3. DESKTOP ERROR STATE (TOAST + SESSION) — 1920x1080",
+      "id": "VotMobRowTitle",
+      "x": 530,
+      "y": 2823,
+      "name": "votingMobileRowTitle",
+      "fill": "#FF006E",
+      "content": "VOTING UI — MOBILE (390x844)",
       "fontFamily": "Bricolage Grotesque",
-      "fontSize": 16,
+      "fontSize": 22,
       "fontWeight": "900"
     },
     {
+      "type": "text",
+      "id": "VotMob1Label",
+      "x": 530,
+      "y": 2873,
+      "name": "labelVotMob1",
+      "fill": "#00FF88",
+      "content": "1. MOBILE VOTING — NO SELECTION",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": 14,
+      "fontWeight": "700"
+    },
+    {
       "type": "frame",
-      "id": "DskErrorView",
-      "x": 4000,
-      "y": 5290,
-      "name": "Desktop Error State",
-      "width": 1920,
-      "height": 1080,
+      "id": "VotMob1",
+      "x": 530,
+      "y": 2903,
+      "name": "Mobile Voting No Selection",
+      "width": 390,
+      "height": 844,
       "fill": "#0F172A",
       "layout": "vertical",
       "children": [
         {
           "type": "frame",
-          "id": "DskErrToastBar",
-          "name": "toastBar",
+          "id": "VotMob1Header",
+          "name": "votingHeader",
           "width": "fill_container",
-          "fill": "#0F172A",
-          "layout": "vertical",
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "frame",
-              "id": "DskErrToastWrap",
-              "name": "toastWrapper",
-              "width": 600,
-              "fill": "#1A1F3A",
-              "layout": "vertical",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "DskErrToastInner",
-                  "name": "toastInner",
-                  "width": "fill_container",
-                  "gap": 12,
-                  "padding": [16, 20],
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "DskErrToastBorder",
-                      "name": "toastRedBorder",
-                      "width": 4,
-                      "height": 48,
-                      "fill": "#EF4444",
-                      "cornerRadius": 2
-                    },
-                    {
-                      "type": "text",
-                      "id": "DskErrToastIcon",
-                      "name": "toastIcon",
-                      "fill": "#EF4444",
-                      "content": "⚠",
-                      "fontFamily": "Inter",
-                      "fontSize": 22,
-                      "fontWeight": "bold"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "DskErrToastTextGroup",
-                      "name": "toastTextGroup",
-                      "layout": "vertical",
-                      "gap": 4,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "DskErrToastTitle",
-                          "name": "toastTitle",
-                          "fill": "#EF4444",
-                          "content": "Session Error",
-                          "fontFamily": "Bricolage Grotesque",
-                          "fontSize": 14,
-                          "fontWeight": "900"
-                        },
-                        {
-                          "type": "text",
-                          "id": "DskErrToastMsg",
-                          "name": "toastMessage",
-                          "fill": "#E2E8F0",
-                          "content": "Failed to load session. Starting fresh.",
-                          "fontFamily": "Bricolage Grotesque",
-                          "fontSize": 13,
-                          "fontWeight": "600"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "DskErrToastDismiss",
-                      "name": "toastDismissBtn",
-                      "width": 36,
-                      "height": 36,
-                      "fill": "#0F172A",
-                      "cornerRadius": 4,
-                      "layout": "vertical",
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "DskErrToastX",
-                          "name": "toastDismissX",
-                          "fill": "#64748B",
-                          "content": "✕",
-                          "fontFamily": "Inter",
-                          "fontSize": 16,
-                          "fontWeight": "bold"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "DskErrToastProgress",
-                  "name": "toastProgress",
-                  "width": 420,
-                  "height": 2,
-                  "fill": "#EF4444",
-                  "cornerRadius": 1
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "DskErrHeader",
-          "name": "sessionHeader",
-          "width": "fill_container",
-          "height": 60,
           "fill": "#1E2744",
-          "gap": 16,
-          "padding": [12, 24],
-          "alignItems": "center",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            44,
+            16,
+            16,
+            16
+          ],
           "children": [
             {
               "type": "frame",
-              "id": "DskErrSessInfo",
-              "name": "sessionInfo",
-              "gap": 16,
-              "alignItems": "center",
+              "id": "VotMob1StoryCard",
+              "name": "storyCard",
+              "width": "fill_container",
+              "fill": "#0F172A",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 12,
               "children": [
                 {
                   "type": "text",
-                  "id": "DskErrSessName",
-                  "name": "sessionName",
-                  "fill": "#E2E8F0",
-                  "content": "Sprint 24 Planning",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 18,
-                  "fontWeight": "900"
-                },
-                {
-                  "type": "text",
-                  "id": "DskErrSessId",
-                  "name": "sessionId",
-                  "fill": "#64748B",
-                  "content": "new-xyz-789",
-                  "fontFamily": "monospace",
-                  "fontSize": 12,
-                  "fontWeight": "600"
-                },
-                {
-                  "type": "text",
-                  "id": "DskErrPartCountBadge",
-                  "name": "partCountBadge",
+                  "id": "VotMob1StoryId",
                   "fill": "#00FF88",
-                  "content": "1/8 players",
+                  "content": "US-42",
                   "fontFamily": "Bricolage Grotesque",
                   "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "VotMob1StoryTitle",
+                  "fill": "#E2E8F0",
+                  "content": "User login flow redesign",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 16,
                   "fontWeight": "700"
                 }
               ]
             },
             {
               "type": "frame",
-              "id": "DskErrShareBtn",
-              "name": "shareButton",
-              "height": 36,
-              "fill": "#FF006E",
-              "cornerRadius": 4,
-              "gap": 8,
-              "padding": [8, 16],
+              "id": "VotMob1TimerRow",
+              "name": "timerRow",
+              "width": "fill_container",
+              "gap": 16,
+              "justifyContent": "center",
               "alignItems": "center",
               "children": [
                 {
-                  "type": "text",
-                  "id": "DskErrShareIcon",
-                  "name": "shareIcon",
-                  "fill": "#FFFFFF",
-                  "content": "↗",
-                  "fontFamily": "Inter",
-                  "fontSize": 14,
-                  "fontWeight": "bold"
-                },
-                {
-                  "type": "text",
-                  "id": "DskErrShareText",
-                  "name": "shareText",
-                  "fill": "#FFFFFF",
-                  "content": "SHARE",
-                  "fontFamily": "Bricolage Grotesque",
-                  "fontSize": 11,
-                  "fontWeight": "900"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "DskErrMainArea",
-          "name": "mainArea",
-          "width": "fill_container",
-          "gap": 0,
-          "children": [
-            {
-              "type": "frame",
-              "id": "DskErrLeftPanel",
-              "name": "leftPanel",
-              "width": 300,
-              "fill": "#1E2744",
-              "layout": "vertical",
-              "gap": 0,
-              "children": [
-                {
                   "type": "frame",
-                  "id": "DskErrPartSectionHead",
-                  "name": "participantsSectionHeader",
-                  "width": "fill_container",
-                  "height": 44,
-                  "fill": "#1E2744",
-                  "gap": 10,
-                  "padding": [12, 16],
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "DskErrPartSectionIcon",
-                      "name": "partSectionIcon",
-                      "content": "👥",
-                      "fontFamily": "Inter",
-                      "fontSize": 16,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "text",
-                      "id": "DskErrPartSectionTitle",
-                      "name": "partSectionTitle",
-                      "fill": "#00FF88",
-                      "content": "PARTICIPANTS",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
-                    },
-                    {
-                      "type": "text",
-                      "id": "DskErrPartSectionCount",
-                      "name": "partSectionCount",
-                      "fill": "#E2E8F0",
-                      "content": "1/8",
-                      "textAlign": "right",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "DskErrPartList",
-                  "name": "participantList",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 1,
-                  "padding": [8, 8],
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "DskErrP1Row",
-                      "name": "participant1",
-                      "width": "fill_container",
-                      "height": 44,
-                      "fill": "#1A1F3A",
-                      "cornerRadius": 4,
-                      "gap": 10,
-                      "padding": [8, 12],
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "ellipse",
-                          "id": "DskErrP1Dot",
-                          "name": "p1StatusDot",
-                          "fill": "#00FF88",
-                          "width": 8,
-                          "height": 8
-                        },
-                        {
-                          "type": "text",
-                          "id": "DskErrP1Avatar",
-                          "name": "p1Avatar",
-                          "content": "👤",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": "normal"
-                        },
-                        {
-                          "type": "text",
-                          "id": "DskErrP1Name",
-                          "name": "p1Name",
-                          "fill": "#E2E8F0",
-                          "content": "You (Host)",
-                          "fontFamily": "Bricolage Grotesque",
-                          "fontSize": 13,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "frame",
-                          "id": "DskErrP1Badge",
-                          "name": "p1HostBadge",
-                          "height": 20,
-                          "fill": "#FF006E",
-                          "cornerRadius": 3,
-                          "layout": "vertical",
-                          "padding": [3, 6],
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "DskErrP1BadgeTxt",
-                              "name": "p1BadgeText",
-                              "fill": "#FFFFFF",
-                              "content": "HOST",
-                              "fontFamily": "Bricolage Grotesque",
-                              "fontSize": 8,
-                              "fontWeight": "900"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "DskErrEmptySlot",
-                      "name": "emptySlot",
-                      "width": "fill_container",
-                      "height": 44,
-                      "fill": "#1A1F3A",
-                      "cornerRadius": 4,
-                      "layout": "vertical",
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "DskErrEmptySlotTxt",
-                          "name": "emptySlotText",
-                          "fill": "#64748B",
-                          "content": "Waiting for players...",
-                          "fontFamily": "Bricolage Grotesque",
-                          "fontSize": 12,
-                          "fontWeight": "600"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "DskErrRightArea",
-              "name": "rightArea",
-              "layout": "vertical",
-              "gap": 0,
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "DskErrStoriesHead",
-                  "name": "storiesHeader",
-                  "width": "fill_container",
-                  "height": 44,
+                  "id": "VotMob1TimerRing",
+                  "name": "timerRing",
+                  "width": 80,
+                  "height": 80,
                   "fill": "#0F172A",
-                  "gap": 10,
-                  "padding": [12, 24],
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "DskErrStoriesIcon",
-                      "name": "storiesIcon",
-                      "content": "📋",
-                      "fontFamily": "Inter",
-                      "fontSize": 16,
-                      "fontWeight": "normal"
-                    },
-                    {
-                      "type": "text",
-                      "id": "DskErrStoriesTitle",
-                      "name": "storiesTitle",
-                      "fill": "#FF006E",
-                      "content": "STORIES",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
-                    },
-                    {
-                      "type": "text",
-                      "id": "DskErrStoriesCount",
-                      "name": "storiesCount",
-                      "fill": "#E2E8F0",
-                      "content": "0",
-                      "textAlign": "right",
-                      "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "DskErrStoriesEmpty",
-                  "name": "storiesEmptyState",
-                  "width": "fill_container",
+                  "cornerRadius": 40,
                   "layout": "vertical",
-                  "gap": 16,
-                  "padding": [80, 40],
                   "justifyContent": "center",
                   "alignItems": "center",
                   "children": [
                     {
                       "type": "text",
-                      "id": "DskErrStoriesEmptyIcon",
-                      "name": "storiesEmptyIcon",
-                      "content": "📝",
-                      "textAlign": "center",
-                      "fontFamily": "Inter",
-                      "fontSize": 40,
-                      "fontWeight": "normal"
-                    },
+                      "id": "VotMob1TimerText",
+                      "fill": "#00FF88",
+                      "content": "1:45",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob1VoteInfo",
+                  "name": "voteInfo",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
                     {
                       "type": "text",
-                      "id": "DskErrStoriesEmptyTitle",
-                      "name": "storiesEmptyTitle",
-                      "fill": "#64748B",
-                      "content": "No stories yet",
-                      "textAlign": "center",
+                      "id": "VotMob1VoteCount",
+                      "fill": "#E2E8F0",
+                      "content": "2/4 voted",
                       "fontFamily": "Bricolage Grotesque",
                       "fontSize": 18,
                       "fontWeight": "700"
                     },
                     {
                       "type": "text",
-                      "id": "DskErrStoriesEmptyDesc",
-                      "name": "storiesEmptyDesc",
+                      "id": "VotMob1VoteWait",
                       "fill": "#64748B",
-                      "content": "Add a story to start estimating with your team.",
-                      "textAlign": "center",
+                      "content": "waiting for others...",
                       "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 14,
+                      "fontSize": 12,
                       "fontWeight": "600"
                     }
                   ]
@@ -10331,75 +8733,229 @@
         },
         {
           "type": "frame",
-          "id": "DskErrFooter",
-          "name": "footerActionBar",
+          "id": "VotMob1DeckArea",
+          "name": "cardDeckArea",
           "width": "fill_container",
-          "height": 56,
           "fill": "#0F172A",
-          "gap": 12,
-          "padding": [12, 24],
-          "alignItems": "center",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 16,
           "children": [
             {
-              "type": "text",
-              "id": "DskErrFooterStatus",
-              "name": "footerStatus",
-              "fill": "#64748B",
-              "content": "⏱ Session expires in 15 days",
-              "fontFamily": "Bricolage Grotesque",
-              "fontSize": 12,
-              "fontWeight": "700"
+              "type": "group",
+              "id": "bVR8H",
+              "layout": "horizontal",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "width": "fill_container",
+              "height": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VotMob1DeckLabel",
+                  "fill": "#64748B",
+                  "content": "TAP A CARD TO VOTE",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "ApPmC",
+                  "name": "partLabel",
+                  "fill": "#00FF88",
+                  "content": "3 of 8 have voted",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "900"
+                }
+              ]
             },
             {
               "type": "frame",
-              "id": "DskErrFooterBtns",
-              "name": "footerButtons",
+              "id": "VotMob1Row1",
+              "name": "cardRow1",
+              "width": "fill_container",
               "gap": 10,
-              "alignItems": "center",
               "children": [
                 {
                   "type": "frame",
-                  "id": "DskErrAddStoryBtn",
-                  "name": "addStoryBtn",
-                  "height": 40,
-                  "fill": "#FF006E",
-                  "cornerRadius": 4,
-                  "gap": 8,
-                  "padding": [10, 20],
+                  "id": "VotMob1C0",
+                  "width": 174,
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
                   "alignItems": "center",
                   "children": [
                     {
                       "type": "text",
-                      "id": "DskErrAddStoryTxt",
-                      "name": "addStoryBtnText",
-                      "fill": "#0F172A",
-                      "content": "+ ADD STORY",
+                      "id": "VotMob1C0Txt",
+                      "fill": "#E2E8F0",
+                      "content": "1",
                       "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
+                      "fontSize": 32,
+                      "fontWeight": "700"
                     }
                   ]
                 },
                 {
                   "type": "frame",
-                  "id": "DskErrRevealBtn",
-                  "name": "revealVotesBtn",
-                  "height": 40,
+                  "id": "VotMob1C2",
+                  "width": 174,
+                  "height": 80,
                   "fill": "#1A1F3A",
-                  "cornerRadius": 4,
-                  "gap": 8,
-                  "padding": [10, 20],
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
                   "alignItems": "center",
                   "children": [
                     {
                       "type": "text",
-                      "id": "DskErrRevealBtnTxt",
-                      "name": "revealVotesBtnText",
-                      "fill": "#64748B",
-                      "content": "REVEAL VOTES",
+                      "id": "VotMob1C2Txt",
+                      "fill": "#E2E8F0",
+                      "content": "2",
                       "fontFamily": "Bricolage Grotesque",
-                      "fontSize": 12,
-                      "fontWeight": "900"
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob1Row2",
+              "name": "cardRow2",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob1C3",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob1C3Txt",
+                      "fill": "#E2E8F0",
+                      "content": "3",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob1C8",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob1C8Txt",
+                      "fill": "#E2E8F0",
+                      "content": "5",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob1Row3",
+              "name": "cardRow3",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob1C13",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob1C13Txt",
+                      "fill": "#E2E8F0",
+                      "content": "8",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob1C34",
+                  "width": 174,
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob1C34Txt",
+                      "fill": "#E2E8F0",
+                      "content": "13",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob1Row4",
+              "name": "cardRow4",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob1CQ",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob1CQTxt",
+                      "fill": "#E2E8F0",
+                      "content": "?",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
                     }
                   ]
                 }
@@ -10411,11 +8967,11 @@
     },
     {
       "type": "frame",
-      "id": "DskErrAnnot",
-      "x": 4000,
-      "y": 6400,
-      "name": "annotationDskError",
-      "width": 640,
+      "id": "VotMob1Annot",
+      "x": 530,
+      "y": 3793,
+      "name": "annotVotMob1",
+      "width": 390,
       "fill": "#1A1F3A",
       "cornerRadius": 6,
       "layout": "vertical",
@@ -10424,20 +8980,870 @@
       "children": [
         {
           "type": "text",
-          "id": "DskErrAnnotTitle",
-          "name": "annotTitleDskErr",
-          "fill": "#EF4444",
-          "content": "ANIMATION SPECS — DESKTOP ERROR TOAST + SESSION",
+          "id": "VotMob1AnnotTitle",
+          "fill": "#00FF88",
+          "content": "ANIM SPECS — MOBILE VOTING (DEFAULT STATE)",
           "fontFamily": "Bricolage Grotesque",
-          "fontSize": 12,
+          "fontSize": 11,
           "fontWeight": "900"
         },
         {
           "type": "text",
-          "id": "DskErrAnnotDesc",
-          "name": "annotDescDskErr",
+          "id": "VotMob1AnnotDesc",
           "fill": "#9CA3AF",
-          "content": "• Toast: 600px wide, centered in full-width #0F172A bar at y:0\n  - Entrance: translateY(-100%) → translateY(0) (300ms ease-out)\n  - Flush at very top — no gap between toast and screen edge\n  - #1A1F3A background, 4px red left border (#EF4444)\n  - Auto-dismiss progress bar: 420px wide, shrinks 0→100% over 5s\n• Dismiss X: whileTap scale 0.9, whileHover brightness 1.2\n• Session content: fade-in 400ms ease-out (200ms delay)\n  - Layout: 300px left sidebar + full remaining right area\n  - Both panels render in empty/fresh state\n• Disabled REVEAL VOTES: #1A1F3A bg + #64748B text\n  - Not interactive; pointer-events: none in implementation\n• prefers-reduced-motion: toast appears instantly (no slide)",
+          "content": "• Card tap: whileTap scale 0.95 (spring stiff:300 damp:20)\n• Card entrance: stagger 50ms/card, opacity 0→1 + translateY 8px→0\n• Vote count: count-up 150ms per digit\n• Timer ring: SVG stroke-dashoffset drives arc continuously\n• Green ring = >60s remaining\n• prefers-reduced-motion: instant state changes",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 10,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "VotMob2Label",
+      "x": 1060,
+      "y": 2873,
+      "name": "labelVotMob2",
+      "fill": "#00FF88",
+      "content": "2. MOBILE VOTING — CARD SELECTED (5)",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": 14,
+      "fontWeight": "700"
+    },
+    {
+      "type": "frame",
+      "id": "VotMob2",
+      "x": 1060,
+      "y": 2903,
+      "name": "Mobile Voting Card Selected",
+      "width": 390,
+      "height": 844,
+      "fill": "#0F172A",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "VotMob2Header",
+          "name": "votingHeaderSelected",
+          "width": "fill_container",
+          "fill": "#1E2744",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            44,
+            16,
+            16,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "VotMob2StoryCard",
+              "name": "storyCard",
+              "width": "fill_container",
+              "fill": "#0F172A",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VotMob2StoryId",
+                  "fill": "#00FF88",
+                  "content": "US-42",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "VotMob2StoryTitle",
+                  "fill": "#E2E8F0",
+                  "content": "User login flow redesign",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob2TimerRow",
+              "name": "timerRowSelected",
+              "width": "fill_container",
+              "gap": 16,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob2TimerRing",
+                  "width": 80,
+                  "height": 80,
+                  "fill": "#0F172A",
+                  "cornerRadius": 40,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob2TimerText",
+                      "fill": "#FFB800",
+                      "content": "0:48",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob2VoteInfo",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob2VoteCount",
+                      "fill": "#E2E8F0",
+                      "content": "3/4 voted",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VotMob2VoteWait",
+                      "fill": "#64748B",
+                      "content": "waiting for 1 more...",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VotMob2Banner",
+          "name": "selectedBanner",
+          "width": "fill_container",
+          "height": 36,
+          "fill": "#00FF88",
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "VotMob2BannerTxt",
+              "fill": "#0F172A",
+              "content": "✓  Your vote: 5  —  TAP ANOTHER TO CHANGE",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 12,
+              "fontWeight": "900"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VotMob2DeckArea",
+          "name": "cardDeckAreaSelected",
+          "width": "fill_container",
+          "fill": "#0F172A",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 16,
+          "children": [
+            {
+              "type": "group",
+              "id": "9YjyO",
+              "layout": "horizontal",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "width": "fill_container",
+              "height": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tdpDy",
+                  "fill": "#64748B",
+                  "content": "TAP A CARD TO CHANGE VOTE",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "q2wSO",
+                  "name": "partLabel",
+                  "fill": "#00FF88",
+                  "content": "3 of 8 have voted",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "900"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob2Row1",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob2C1",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob2C1Txt",
+                      "fill": "#E2E8F0",
+                      "content": "1",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob2C2",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob2C2Txt",
+                      "fill": "#E2E8F0",
+                      "content": "2",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob2Row2",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob2C3",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob2C3Txt",
+                      "fill": "#E2E8F0",
+                      "content": "3",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob2C5Sel",
+                  "name": "card5Selected",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#00FF88",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob2C5Check",
+                      "fill": "#0F172A",
+                      "content": "✓",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 14,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VotMob2C5Txt",
+                      "fill": "#0F172A",
+                      "content": "5",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob2Row3",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob2C13",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob2C13Txt",
+                      "fill": "#E2E8F0",
+                      "content": "8",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob2C34",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob2C34Txt",
+                      "fill": "#E2E8F0",
+                      "content": "13",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob2Row4",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob2CQ",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob2CQTxt",
+                      "fill": "#E2E8F0",
+                      "content": "?",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "VotMob2Annot",
+      "x": 1060,
+      "y": 3793,
+      "name": "annotVotMob2",
+      "width": 390,
+      "fill": "#1A1F3A",
+      "cornerRadius": 6,
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "VotMob2AnnotTitle",
+          "fill": "#00FF88",
+          "content": "ANIM SPECS — SELECTED STATE + YELLOW TIMER",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 11,
+          "fontWeight": "900"
+        },
+        {
+          "type": "text",
+          "id": "VotMob2AnnotDesc",
+          "fill": "#9CA3AF",
+          "content": "• Selection: scale 1.0→1.1, bg #1A1F3A→#00FF88 (300ms ease-out)\n• Text: #E2E8F0→#0F172A simultaneously\n• Checkmark: fadeIn scale 0→1 (200ms, 100ms delay)\n• Banner: slideDown from -36px (200ms ease-out)\n• Timer ring: #00FF88→#FFB800 (400ms ease-in-out at 60s threshold)\n• Vote count: counter-up 150ms linear",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 10,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "VotMob3Label",
+      "x": 1590,
+      "y": 2873,
+      "name": "labelVotMob3",
+      "fill": "#00FF88",
+      "content": "3. MOBILE VOTING — TIMER EXPIRING (<30s)",
+      "fontFamily": "Bricolage Grotesque",
+      "fontSize": 14,
+      "fontWeight": "700"
+    },
+    {
+      "type": "frame",
+      "id": "VotMob3",
+      "x": 1590,
+      "y": 2903,
+      "name": "Mobile Voting Timer Expiring",
+      "width": 390,
+      "height": 844,
+      "fill": "#0F172A",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "VotMob3Header",
+          "name": "votingHeaderUrgent",
+          "width": "fill_container",
+          "fill": "#1E2744",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            44,
+            16,
+            16,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "VotMob3StoryCard",
+              "width": "fill_container",
+              "fill": "#0F172A",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VotMob3StoryId",
+                  "fill": "#00FF88",
+                  "content": "US-42",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "VotMob3StoryTitle",
+                  "fill": "#E2E8F0",
+                  "content": "User login flow redesign",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob3TimerRow",
+              "width": "fill_container",
+              "gap": 16,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob3TimerRing",
+                  "width": 80,
+                  "height": 80,
+                  "fill": "#2D0A0A",
+                  "cornerRadius": 40,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob3TimerText",
+                      "fill": "#EF4444",
+                      "content": "0:22",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob3VoteInfo",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob3VoteCount",
+                      "fill": "#E2E8F0",
+                      "content": "3/4 voted",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VotMob3Urgent",
+                      "fill": "#EF4444",
+                      "content": "TIME RUNNING OUT!",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 12,
+                      "fontWeight": "900"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VotMob3Banner",
+          "width": "fill_container",
+          "height": 36,
+          "fill": "#00FF88",
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "VotMob3BannerTxt",
+              "fill": "#0F172A",
+              "content": "✓  Your vote: 8  —  TAP ANOTHER TO CHANGE",
+              "fontFamily": "Bricolage Grotesque",
+              "fontSize": 12,
+              "fontWeight": "900"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "VotMob3DeckArea",
+          "width": "fill_container",
+          "fill": "#0F172A",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": 16,
+          "children": [
+            {
+              "type": "group",
+              "id": "bspkl",
+              "layout": "horizontal",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "width": "fill_container",
+              "height": "fill_container",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cwl97",
+                  "rotation": -0.035138690427001594,
+                  "fill": "#EF4444",
+                  "content": "VOTE NOW — TIME IS RUNNING OUT",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 11,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Ro9UR",
+                  "name": "partLabel",
+                  "fill": "#00FF88",
+                  "content": "3 of 8 have voted",
+                  "fontFamily": "Bricolage Grotesque",
+                  "fontSize": 12,
+                  "fontWeight": "900"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob3Row1",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob3C1",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob3C1Txt",
+                      "fill": "#64748B",
+                      "content": "1",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob3C2",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob3C2Txt",
+                      "fill": "#64748B",
+                      "content": "2",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob3Row2",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob3C3",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob3C3Txt",
+                      "fill": "#64748B",
+                      "content": "3",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GugO2",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VJzRk",
+                      "fill": "#64748B",
+                      "content": "5",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob3Row3",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "8kOAj",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#00FF88",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Fr6NT",
+                      "fill": "#0F172A",
+                      "content": "✓",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 14,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Esatx",
+                      "fill": "#0F172A",
+                      "content": "8",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VotMob3C34",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob3C34Txt",
+                      "fill": "#64748B",
+                      "content": "13",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VotMob3Row4",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VotMob3CQ",
+                  "width": "fill_container",
+                  "height": 80,
+                  "fill": "#1A1F3A",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "VotMob3CQTxt",
+                      "fill": "#64748B",
+                      "content": "?",
+                      "fontFamily": "Bricolage Grotesque",
+                      "fontSize": 32,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "VotMob3Annot",
+      "x": 1590,
+      "y": 3793,
+      "name": "annotVotMob3",
+      "width": 390,
+      "fill": "#1A1F3A",
+      "cornerRadius": 6,
+      "layout": "vertical",
+      "gap": 8,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "VotMob3AnnotTitle",
+          "fill": "#EF4444",
+          "content": "ANIM SPECS — URGENT TIMER STATE (<30s)",
+          "fontFamily": "Bricolage Grotesque",
+          "fontSize": 11,
+          "fontWeight": "900"
+        },
+        {
+          "type": "text",
+          "id": "VotMob3AnnotDesc",
+          "fill": "#9CA3AF",
+          "content": "• Timer ring: #FFB800→#EF4444 (400ms ease-in-out at 30s threshold)\n• Ring fill: transparent→#2D0A0A (dark red tint)\n• Timer pulse: scale 1.0→1.05→1.0 every 800ms loop\n• Red glow: 0 0 12px #EF4444 (box-shadow)\n• Deck label and card text dim to #64748B\n• Story card: 1px #EF4444 urgency border\n• prefers-reduced-motion: static red ring only",
           "fontFamily": "Bricolage Grotesque",
           "fontSize": 10,
           "fontWeight": "normal"
