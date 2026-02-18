@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import { Bricolage_Grotesque } from 'next/font/google';
 import type { ReactNode } from 'react';
+
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -8,13 +10,18 @@ export const metadata: Metadata = {
     'Production-ready Next.js 15 scaffold demonstrating best practices for interview code challenges',
 };
 
+const bricolage = Bricolage_Grotesque({
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-bricolage',
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={bricolage.className}>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );

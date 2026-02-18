@@ -5,8 +5,8 @@
  * clsx for conditional classes and tailwind-merge for conflict resolution.
  */
 
-import { describe, it, expect } from 'vitest';
 import { cn } from '@/shared/lib/utils/cn';
+import { describe, expect, it } from 'vitest';
 
 describe('cn utility function', () => {
   describe('basic functionality', () => {
@@ -36,11 +36,7 @@ describe('cn utility function', () => {
       const isActive = true;
       const isDisabled = false;
 
-      const result = cn(
-        'base-class',
-        isActive && 'active',
-        isDisabled && 'disabled',
-      );
+      const result = cn('base-class', isActive && 'active', isDisabled && 'disabled');
 
       expect(result).toBe('base-class active');
     });

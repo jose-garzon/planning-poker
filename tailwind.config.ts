@@ -9,6 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        poker: {
+          'bg-page': '#0F172A',
+          'bg-header': '#1E2744',
+          'bg-row': '#1A1F3A',
+          green: '#00FF88',
+          magenta: '#FF006E',
+          gold: '#FFB800',
+          text: '#E2E8F0',
+          muted: '#64748B',
+          dim: '#94A3B8',
+          error: '#EF4444',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

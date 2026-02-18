@@ -40,5 +40,5 @@ vi.mock('next/headers', () => ({
 }));
 
 // Set test environment variables
-vi.stubEnv('NODE_ENV', 'test')
-vi.stubEnv('DATABASE_URL', 'file:./test.db')
+vi.stubEnv('NODE_ENV', 'test');
+vi.stubEnv('DATABASE_URL', 'file:./test.db');
