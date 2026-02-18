@@ -10,9 +10,11 @@ export const metadata: Metadata = {
     'Production-ready Next.js 15 scaffold demonstrating best practices for interview code challenges',
 };
 
-const bricolage = Bricolage_Grotesque({
+const bricolageGrotesque = Bricolage_Grotesque({
   weight: ['400', '600', '700', '800'],
   variable: '--font-bricolage',
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export default function RootLayout({
@@ -21,7 +23,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className={bricolage.className}>
+    <html lang="en" className={bricolageGrotesque.variable}>
       <body className="min-h-screen antialiased">{children}</body>
     </html>
   );

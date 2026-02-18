@@ -1,2 +1,1 @@
-// This file has been deleted. Components will be rebuilt using Base UI.
-export {};
+// This file has been removed. Import from the dialog folder when implemented.

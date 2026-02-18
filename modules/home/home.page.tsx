@@ -1,4 +1,7 @@
-import { Button } from '@/shared/components/ui/button';
+import { Button } from '@/shared/components/ui/button/button';
+import { Input } from '@/shared/components/ui/input/input';
+import { StatusDot } from '@/shared/components/ui/status-dot/status-dot';
+import { TimerRing } from '@/shared/components/ui/timer-ring/timer-ring';
 import Link from 'next/link';
 
 export default function HomePage() {
@@ -17,10 +20,18 @@ export default function HomePage() {
             </Button>
           </Link>
           <a href="/api/health" target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" size="lg">
+            <Button variant="ghost" size="lg">
               API Health Check
             </Button>
           </a>
+          <Input />
+          <Button loading variant="primary" size="lg">
+            View Users
+          </Button>
+          <StatusDot status="online" />
+          <StatusDot status="idle" />
+          <StatusDot status="offline" />
+          <TimerRing seconds={1500} totalSeconds={90} />
         </div>
 
         <div className="grid gap-8 text-left md:grid-cols-2">

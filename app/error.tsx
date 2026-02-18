@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/shared/components/ui/button';
+import { Button } from '@/shared/components/ui/button/button';
 import { useEffect } from 'react';
 
 export default function ErrorPage({

@@ -14,19 +14,19 @@ Static UI mockups following the design in `docs/design/screens.md`. No business 
 
 ## Step 1 — Design System Foundation
 
-- [X] Install `framer-motion` and `zustand` via `bun add`
-- [X] Add `Bricolage_Grotesque` font via `next/font/google` in `app/layout.tsx` (weights: 400, 600, 700, 800), expose as `--font-bricolage` CSS var
-- [X] Add Planning Poker color tokens to `tailwind.config.ts` under `theme.extend.colors.poker`:
+- [x] Install `framer-motion` and `zustand` via `bun add`
+- [x] Add `Bricolage_Grotesque` font via `next/font/google` in `app/layout.tsx` (weights: 400, 600, 700, 800), expose as `--font-bricolage` CSS var
+- [x] Add Planning Poker color tokens to `tailwind.config.ts` under `theme.extend.colors.poker`:
   - `bg-page: #0F172A`, `bg-header: #1E2744`, `bg-row: #1A1F3A`
   - `green: #00FF88`, `magenta: #FF006E`, `gold: #FFB800`
   - `text: #E2E8F0`, `muted: #64748B`, `dim: #94A3B8`, `error: #EF4444`
-- [X] Update `app/globals.css`: apply dark theme as default, set `font-family: var(--font-bricolage)` on body
-- [X] Delete `shared/components/ui/button.tsx`, `input.tsx`, `dialog.tsx`
+- [x] Update `app/globals.css`: apply dark theme as default, set `font-family: var(--font-bricolage)` on body
+- [x] Delete `shared/components/ui/button.tsx`, `input.tsx`, `dialog.tsx`
 - [ ] Rebuild `shared/components/ui/button.tsx` — variants: `primary` (green), `secondary` (magenta), `ghost`, `danger`; sizes: `sm` 36px / `md` 44px / `lg` 52px; `whileTap={{ scale: 0.95 }}`
-- [ ] Rebuild `shared/components/ui/input.tsx` — #1E2744 bg, #64748B border → #00FF88 focus, 48px height
-- [ ] Create `shared/components/ui/status-dot.tsx` — 12px circle, `online` (#00FF88 pulse) / `idle` (#FFB800) / `offline` (#64748B)
-- [ ] Create `shared/components/ui/badge.tsx` — HOST badge (#FF006E bg), vote count badge
-- [ ] Create `shared/components/ui/timer-ring.tsx` — 80px SVG ring, green >60s / yellow 30-60s / red <30s pulsing, time text in center
+- [x] Rebuild `shared/components/ui/input.tsx` — #1E2744 bg, #64748B border → #00FF88 focus, 48px height
+- [x] Create `shared/components/ui/status-dot.tsx` — 12px circle, `online` (#00FF88 pulse) / `idle` (#FFB800) / `offline` (#64748B)
+- [x] Create `shared/components/ui/badge.tsx` — HOST badge (#FF006E bg), vote count badge
+- [x] Create `shared/components/ui/timer-ring.tsx` — 80px SVG ring, green >60s / yellow 30-60s / red <30s pulsing, time text in center
 
 ---
 

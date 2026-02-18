@@ -1,4 +1,4 @@
-import { Button } from '@/shared/components/ui/button';
+import { Button } from '@/shared/components/ui/button/button';
 import Link from 'next/link';
 
 export default function UsersPage() {
@@ -7,7 +7,7 @@ export default function UsersPage() {
       <div className="mb-8 flex items-center justify-between">
         <h1 className="text-3xl font-bold">Users</h1>
         <Link href="/">
-          <Button variant="outline">Back Home</Button>
+          <Button variant="ghost">Back Home</Button>
         </Link>
       </div>
 
