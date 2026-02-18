@@ -56,15 +56,15 @@ Static UI mockups following the design in `docs/design/screens.md`. No business 
 
 ## Step 4 — Session View (`/session/[id]`)
 
-- [ ] Create `app/session/[id]/page.tsx` — reads `?state` search param, passes to module
-- [ ] Create `modules/poker-session/session.page.tsx` — switches between lobby/voting/results/expired views
-- [ ] Create `modules/poker-session/components/participant-row.tsx`
+- [x] Create `app/session/[id]/page.tsx` — reads `?state` search param, passes to module
+- [x] Create `modules/poker-session/session.page.tsx` — switches between lobby/voting/results/expired views
+- [x] Create `modules/poker-session/components/participant-row.tsx`
   - Height 48px (desktop) / 52px (mobile), #1A1F3A bg, 8px radius
   - StatusDot + 32px avatar (initials) + name + HOST badge
   - Animation: slide-in from left translateX -100%→0 (300ms) on mount
-- [ ] Create `modules/poker-session/components/story-row.tsx`
+- [x] Create `modules/poker-session/components/story-row.tsx`
   - Story title, status badge (VOTING NOW / PENDING), 48px height
-- [ ] Create `modules/poker-session/components/session-lobby.tsx` — desktop + mobile layout
+- [x] Create `modules/poker-session/components/session-lobby.tsx` — desktop + mobile layout
   - Desktop: 60px header bar (#1E2744) + 280px left sidebar + main area (#0F172A) + bottom action bar
   - Mobile: fixed header + vertical participant stack + stories + bottom action bar (thumb zone)
   - Sidebar: "PARTICIPANTS" + participant rows + "STORIES" + story rows

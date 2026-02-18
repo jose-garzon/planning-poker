@@ -1,5 +1,6 @@
 'use client';
 
+import { ExpiredView } from './components/expired-view';
 import { SessionLobby } from './components/session-lobby';
 
 interface SessionPageProps {
@@ -20,7 +21,7 @@ export default function SessionPage({ id, state }: SessionPageProps) {
   }
 
   if (state === 'expired') {
-    return <div className={placeholderClasses}>Session expired</div>;
+    return <ExpiredView />;
   }
 
   return <SessionLobby sessionId={id} />;
