@@ -32,7 +32,7 @@ Static UI mockups following the design in `docs/design/screens.md`. No business 
 
 ## Step 2 — Landing Page (`/`)
 
-- [ ] Replace `modules/home/home.page.tsx` with Planning Poker hero layout
+- [x] Replace `modules/home/home.page.tsx` with Planning Poker hero layout
   - Full-page gradient (#0F172A → #1A2847)
   - "PLANNING" (#00FF88, 84px/900) + "POKER" (#FF006E, 84px/900)
   - Subtitle (#E2E8F0, 20px), "Create Session" CTA (magenta, lg), "or join with a link" text link
@@ -43,8 +43,8 @@ Static UI mockups following the design in `docs/design/screens.md`. No business 
 
 ## Step 3 — Join Session Page (`/join/[id]`)
 
-- [ ] Create `app/join/[id]/page.tsx` — delegates to module
-- [ ] Create `modules/join/join.page.tsx` — centered card layout
+- [x] Create `app/join/[id]/page.tsx` — delegates to module
+- [x] Create `modules/join/join.page.tsx` — centered card layout
   - Dark bg #0F172A, card #1E2744 (max-width 420px, 16px radius)
   - Poker chip icon (64×64) + "You're invited!" (#00FF88, 28px/900)
   - Session name badge (#1A1F3A, #FF006E text)
