@@ -16,6 +16,7 @@ const config: Config = {
           green: '#00FF88',
           magenta: '#FF006E',
           gold: '#FFB800',
+          blue: '#3B82F6',
           text: '#E2E8F0',
           muted: '#64748B',
           dim: '#94A3B8',

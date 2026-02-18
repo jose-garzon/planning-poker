@@ -105,16 +105,16 @@ Static UI mockups following the design in `docs/design/screens.md`. No business 
 
 ## Step 7 — State Pages
 
-- [ ] Create `app/session/[id]/loading.tsx` (Next.js loading UI)
+- [x] Create `app/session/[id]/loading.tsx` (Next.js loading UI)
   - Full-page #0F172A, centered spinner ring (96px, #00FF88 arc on #1E2744 track) + poker chip emoji
   - "Restoring your session..." + secondary hint text
   - 3 loading dots (cascading opacity pulse, 800ms, 200ms stagger)
-- [ ] Create `modules/poker-session/components/expired-view.tsx` (shown when `?state=expired`)
+- [x] Create `modules/poker-session/components/expired-view.tsx` (shown when `?state=expired`)
   - Centered card (max 480px): hourglass icon + "This session has expired" (24px/900)
   - 15-day description + last activity date badge
   - "CREATE NEW SESSION" button (green, 48px, 320px desktop / full-width mobile)
   - "Back to Home" text link + #FFB800 accent line at card bottom
-- [ ] Create `shared/components/ui/error-toast.tsx`
+- [] Create `shared/components/ui/error-toast.tsx`
   - Flush to top edge, translateY -100%→0 (300ms ease-out)
   - #1A1F3A bg, 4px #EF4444 left border, warning icon + message + dismiss X
   - Auto-dismiss progress bar (2px red, 5s linear shrink)

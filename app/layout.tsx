@@ -1,3 +1,4 @@
+import { ToastProvider } from '@/shared/components/ui/toast';
 import type { Metadata } from 'next';
 import { Bricolage_Grotesque } from 'next/font/google';
 import type { ReactNode } from 'react';
@@ -24,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={bricolageGrotesque.variable}>
-      <body className="min-h-screen antialiased">{children}</body>
+      <body className="min-h-screen antialiased">
+        <ToastProvider>{children}</ToastProvider>
+      </body>
     </html>
   );
 }

@@ -55,7 +55,7 @@ export function SessionLobby({ sessionId }: SessionLobbyProps) {
                   <ParticipantRow
                     key={p.name}
                     name={p.name}
-                    isHost={p.isHost}
+                    {...(p.isHost !== undefined && { isHost: p.isHost })}
                     status={p.status}
                     voted={p.voted}
                   />
@@ -109,7 +109,7 @@ export function SessionLobby({ sessionId }: SessionLobbyProps) {
                 <ParticipantRow
                   key={p.name}
                   name={p.name}
-                  isHost={p.isHost}
+                  {...(p.isHost !== undefined && { isHost: p.isHost })}
                   status={p.status}
                   voted={p.voted}
                 />

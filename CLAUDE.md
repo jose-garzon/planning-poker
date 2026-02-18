@@ -123,16 +123,46 @@ Use these to automate common workflows:
 
 ## When to Use Specialized Agents
 
-### `software-developer`
-Use for **all implementation work**: building features, writing components, creating API routes, implementing SSE, writing tests. This agent has detailed patterns for:
-- Vertical slice folder structure with container/UI component examples
-- Framer Motion animation standards (60fps target)
-- SSE implementation and optimistic updates
-- IndexedDB/Zustand state management
-- Unit and E2E testing patterns
+### `web-design-specialist` — Visual Components & Gamified Experience
+Use for **all visual/presentational work**. This agent owns the look, feel, and gamified experience of the app.
 
-### `web-design-specialist`
-Use for **design work**: creating UI mockups, validating designs in browser, reviewing accessibility and visual hierarchy. This agent uses the Pencil MCP tools for design iteration.
+**Owns:**
+- All JSX for presentational components — writes the actual `.tsx` files
+- Design system tokens and Tailwind theme updates (new colors, spacing, typography)
+- Framer Motion animations — entrance/exit, hover, tap, stagger, reveal sequences
+- Accessibility (reduced motion, ARIA, contrast, keyboard nav)
+- Design-file iteration using Pencil MCP tools (`design.pen`)
+- Responsive layouts (mobile-first, desktop breakpoints)
+- Game-feel details: card selection effects, celebration bursts, pulsing indicators, countdown urgency
+
+**Does NOT own:**
+- Container components (components that read from stores or call hooks with real data)
+- API calls, SSE subscriptions, or Zustand store definitions
+- Business logic of any kind — only accepts data via props
+
+**Boundary rule**: Every component this agent writes is a pure function of its props. If a component needs `useEffect`, `useStore`, or `fetch`, that logic belongs to `software-developer` who wraps it in a container.
+
+---
+
+### `software-developer` — Backend, API & Integration Logic
+Use for **all data, state, and integration work**. This agent owns everything that happens below the visual layer.
+
+**Owns:**
+- API routes (`app/api/**`) — Zod validation, service layer, error handling
+- SSE implementation — event streams, reconnection, <50ms latency patterns
+- Zustand stores — session state, voting state, participant presence
+- IndexedDB / LocalStorage persistence layer
+- Container components — smart wrappers that pass real data to presentational components
+- Custom hooks (`useVoting`, `useSession`, `useSSE`, etc.)
+- Optimistic updates and server reconciliation
+- Unit tests (Vitest) and E2E tests (Playwright)
+- TypeScript types and domain models shared across the app
+
+**Does NOT own:**
+- Tailwind classes, animation configs, or visual layout decisions
+- Creating new presentational components — hands off a props interface and lets `web-design-specialist` build the visual
+
+---
 
 ### `product-owner`
-Use for **product decisions**: refining features, writing specs, creating GitHub issues, maintaining documentation. This agent does NOT write code - only specs and docs.
+Use for **product decisions**: refining features, writing specs, creating GitHub issues, maintaining documentation. This agent does NOT write code — only specs and docs.
