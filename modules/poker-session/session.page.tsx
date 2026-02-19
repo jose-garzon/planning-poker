@@ -5,7 +5,7 @@ import { SessionLobby } from './components/session-lobby';
 
 interface SessionPageProps {
   id: string;
-  state?: string;
+  state?: string | undefined;
 }
 
 const placeholderClasses =

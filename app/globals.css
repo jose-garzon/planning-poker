@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Animatable CSS custom properties for toast stacking */
-@property --toast-y {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 0px;
-}
-@property --toast-scale {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 1;
-}
-@property --toast-opacity {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 1;
-}
-
 @layer base {
   :root {
     --background: 222 47% 11%;
@@ -56,34 +39,13 @@
 
 @layer components {
   /* Toast stack — all toasts share one grid cell so they overlap.
-     CSS custom properties (--toast-y/scale/opacity) animate stacking position.
-     Toast.Root handles close lifecycle; data-* attrs drive enter/exit. */
+     Framer Motion drives stacking (y/scale/opacity) via its animate prop. */
   .toast-viewport {
     display: grid;
     grid-template-columns: 1fr;
   }
 
-  /* Stacking position driven by CSS custom properties so they can be transitioned */
-  .toast-item {
-    transform: translateY(var(--toast-y)) scale(var(--toast-scale));
-    opacity: var(--toast-opacity);
-    transition: --toast-y 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), --toast-scale 0.35s
-      cubic-bezier(0.34, 1.56, 0.64, 1), --toast-opacity 0.35s ease;
-  }
-
-  .toast-item[data-starting-style] {
-    opacity: 0;
-    transform: translateY(-100%) scale(1) !important;
-    transition: none !important;
-  }
-
-  .toast-item[data-ending-style] {
-    opacity: 0 !important;
-    transform: translateY(-100%) scale(1) !important;
-    transition: opacity 0.25s ease, transform 0.25s ease !important;
-  }
-
-  /* Progress bar: shrinks left-to-right over --toast-timeout ms */
+  /* Progress bar: shrinks left-to-right over the toast timeout duration */
   @keyframes toast-progress-shrink {
     from {
       transform: scaleX(1);

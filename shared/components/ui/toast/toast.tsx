@@ -1,8 +1,8 @@
 'use client';
 
 import { Toast } from '@base-ui-components/react/toast';
-import { AnimatePresence } from 'framer-motion';
-import type { CSSProperties, ReactNode } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { type ReactNode, useCallback, useEffect } from 'react';
 
 type ToastType = 'error' | 'success' | 'warning' | 'info';
 
@@ -116,41 +116,65 @@ type ToastItemProps = {
   index: number;
 };
 
+// We bypass Toast.Root entirely because it calls ReactDOM.flushSync() inside a
+// useLayoutEffect to measure height — which React 19 forbids. Instead we read
+// the toast data object directly and handle dismiss + auto-timeout ourselves.
+// Stacking is driven by Framer Motion animate rather than CSS custom properties
+// to avoid transform conflicts.
 function ToastItem({ toast, index }: ToastItemProps) {
+  const { close } = Toast.useToastManager();
   const config = getConfig(toast.type);
   const timeout = toast.timeout ?? 5000;
 
-  const stackStyle: CSSProperties & Record<string, string | number> = {
-    gridRow: 1,
-    gridColumn: 1,
-    '--toast-y': `${index * 8}px`,
-    '--toast-scale': `${1 - index * 0.04}`,
-    '--toast-opacity': `${Math.max(1 - index * 0.15, 0.7)}`,
-    zIndex: 50 - index,
-  };
+  // close() marks the toast as 'ending' and cancels its internal timer.
+  // We filter 'ending' toasts from the render list so AnimatePresence plays
+  // the exit animation. Base UI counts 'ending' toasts as inactive for the limit.
+  const dismiss = useCallback(() => close(toast.id), [close, toast.id]);
+
+  useEffect(() => {
+    if (!timeout) return;
+    const timer = setTimeout(dismiss, timeout);
+    return () => clearTimeout(timer);
+  }, [timeout, dismiss]);
 
   return (
-    <Toast.Root
-      toast={toast}
-      style={stackStyle}
-      className="toast-item overflow-hidden bg-poker-bg-row shadow-lg rounded-none md:rounded-lg"
+    <motion.div
+      aria-live="polite"
+      aria-atomic="true"
+      style={{ gridRow: 1, gridColumn: 1, zIndex: 50 - index }}
+      className="overflow-hidden bg-poker-bg-row shadow-lg rounded-none md:rounded-lg"
+      initial={{ y: '-100%', opacity: 0 }}
+      animate={{
+        y: index * 8,
+        scale: 1 - index * 0.04,
+        opacity: Math.max(1 - index * 0.15, 0.7),
+      }}
+      exit={{ y: '-100%', opacity: 0, scale: 1 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      layout="position"
     >
       <div className={`border-l-4 ${config.borderClass}`}>
-        <Toast.Content className="flex items-start gap-3 px-4 py-3">
+        <div className="flex items-start gap-3 px-4 py-3">
           <span className={config.colorClass}>
             <config.Icon />
           </span>
           <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-            <Toast.Title className="text-sm font-semibold text-poker-text" />
-            <Toast.Description className="text-xs text-poker-muted" />
+            {toast.title && (
+              <p className="text-sm font-semibold text-poker-text">{toast.title as string}</p>
+            )}
+            {toast.description && (
+              <p className="text-xs text-poker-muted">{toast.description as string}</p>
+            )}
           </div>
-          <Toast.Close
+          <button
+            type="button"
             aria-label="Dismiss"
+            onClick={dismiss}
             className="-mr-1 shrink-0 p-1 text-lg leading-none text-poker-muted transition-colors hover:text-poker-text"
           >
             ×
-          </Toast.Close>
-        </Toast.Content>
+          </button>
+        </div>
       </div>
 
       {timeout > 0 && (
@@ -159,18 +183,19 @@ function ToastItem({ toast, index }: ToastItemProps) {
           style={{ animationDuration: `${timeout}ms` }}
         />
       )}
-    </Toast.Root>
+    </motion.div>
   );
 }
 
 function ToastViewport() {
   const { toasts } = Toast.useToastManager();
+  const visibleToasts = toasts.filter((t) => t.transitionStatus !== 'ending');
 
   return (
     <Toast.Portal>
       <Toast.Viewport className="toast-viewport fixed inset-x-0 top-0 z-50 outline-none md:left-auto md:right-4 md:top-4 md:w-[360px]">
-        <AnimatePresence mode="popLayout">
-          {toasts.map((toast, i) => (
+        <AnimatePresence>
+          {visibleToasts.map((toast, i) => (
             <ToastItem key={toast.id} toast={toast} index={i} />
           ))}
         </AnimatePresence>
@@ -179,11 +204,9 @@ function ToastViewport() {
   );
 }
 
-const toastManager = Toast.createToastManager();
-
 export function ToastProvider({ children }: { children: ReactNode }) {
   return (
-    <Toast.Provider toastManager={toastManager} timeout={5000} limit={3}>
+    <Toast.Provider timeout={5000} limit={3}>
       {children}
       <ToastViewport />
     </Toast.Provider>
