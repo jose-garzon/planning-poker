@@ -114,7 +114,7 @@ Static UI mockups following the design in `docs/design/screens.md`. No business 
   - 15-day description + last activity date badge
   - "CREATE NEW SESSION" button (green, 48px, 320px desktop / full-width mobile)
   - "Back to Home" text link + #FFB800 accent line at card bottom
-- [] Create `shared/components/ui/error-toast.tsx`
+- [x] Create `shared/components/ui/error-toast.tsx`
   - Flush to top edge, translateY -100%→0 (300ms ease-out)
   - #1A1F3A bg, 4px #EF4444 left border, warning icon + message + dismiss X
   - Auto-dismiss progress bar (2px red, 5s linear shrink)
