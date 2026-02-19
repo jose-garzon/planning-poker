@@ -20,7 +20,7 @@ const statusLabel: Record<Exclude<StoryStatus, 'done'>, string> = {
 
 export function StoryRow({ title, status, estimate }: StoryRowProps) {
   return (
-    <div className="h-12 flex items-center px-3 gap-3 rounded-lg bg-poker-bg-row">
+    <div className="h-12 shrink-0 flex items-center px-3 gap-3 rounded-lg bg-poker-bg-row">
       <span className="text-poker-text text-sm flex-1 truncate">{title}</span>
 
       {status === 'done' ? (

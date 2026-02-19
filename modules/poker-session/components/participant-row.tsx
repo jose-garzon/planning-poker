@@ -31,7 +31,7 @@ export function ParticipantRow({
       initial="hidden"
       animate="visible"
       transition={rowTransition}
-      className="h-12 md:h-[52px] bg-poker-bg-row rounded-lg flex items-center px-3 gap-3"
+      className="h-12 md:h-[52px] shrink-0 bg-poker-bg-row rounded-lg flex items-center px-3 gap-3"
     >
       <StatusDot status={status} />
 
