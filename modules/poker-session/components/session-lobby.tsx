@@ -1,6 +1,8 @@
 'use client';
 
+import { cn } from '@/shared/lib/utils/cn';
 import { LobbyFooter } from './footer/footer';
+import type { GameState } from './game/game';
 import { GameArea } from './game/game';
 import { LobbyHeader } from './header/header';
 import { ParticipantsPanel } from './participants/participants';
@@ -9,6 +11,7 @@ import { StoriesPanel } from './stories/stories';
 interface SessionLobbyProps {
   sessionId: string;
   role: 'host' | 'participant';
+  state?: GameState;
 }
 
 const MOCK_PARTICIPANTS = [
@@ -54,17 +57,45 @@ const sortedStories = [...MOCK_STORIES].sort(
   (a, b) => STORY_ORDER[a.status] - STORY_ORDER[b.status],
 );
 
-export function SessionLobby({ sessionId, role }: SessionLobbyProps) {
+const GAME_STATES: GameState[] = ['voting', 'timeup', 'unanimous-results', 'results', 'voted'];
+
+function getMobileLabel(state: GameState, isHost: boolean): string {
+  if (state === 'voting') {
+    return isHost ? 'Voting in progress...' : 'Cast your vote';
+  }
+  if (state === 'timeup') {
+    return isHost ? "Time's up — revealing results" : "Time's up";
+  }
+  if (state === 'unanimous-results') {
+    return isHost ? 'Unanimous vote! 🎉' : 'Unanimous! 🎉';
+  }
+  if (state === 'results') {
+    return 'Results are in';
+  }
+  if (state === 'voted') {
+    return isHost ? '' : 'Vote submitted ✓';
+  }
+  return '';
+}
+
+export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
   const isHost = role === 'host';
   const storiesLabel = isHost ? 'STORIES' : 'CURRENT STORY';
   const storiesEmpty = isHost ? 'No stories yet' : 'Waiting for host to start voting...';
+  const isGameActive = state !== undefined && (GAME_STATES as string[]).includes(state);
 
   return (
     <div className="flex flex-col h-screen bg-poker-bg-page overflow-hidden">
       <LobbyHeader sessionId={sessionId} />
 
       <div className="flex-1 flex overflow-hidden">
-        <aside className="flex flex-col w-full md:w-[300px] shrink-0 px-4 md:px-6 pt-4 md:pt-5 pb-4 md:pb-5 gap-4 md:gap-5">
+        {/* Aside — always on desktop, hidden on mobile when game is active */}
+        <aside
+          className={cn(
+            'flex flex-col w-full md:w-[300px] shrink-0 px-4 md:px-6 pt-4 md:pt-5 pb-4 md:pb-5 gap-4 md:gap-5',
+            isGameActive && 'hidden md:flex',
+          )}
+        >
           <ParticipantsPanel participants={sortedParticipants} total={MOCK_PARTICIPANTS.length} />
           <StoriesPanel
             stories={sortedStories}
@@ -74,7 +105,15 @@ export function SessionLobby({ sessionId, role }: SessionLobbyProps) {
           />
         </aside>
 
-        <GameArea isHost={isHost} />
+        {/* Mobile game view — only on mobile when game is active */}
+        {isGameActive && (
+          <div className="flex-1 flex md:hidden items-center justify-center px-4">
+            <p className="text-poker-muted text-sm">{getMobileLabel(state, isHost)}</p>
+          </div>
+        )}
+
+        {/* Desktop game area — always rendered, controls its own hidden md:flex */}
+        <GameArea isHost={isHost} state={state} />
       </div>
 
       <LobbyFooter isHost={isHost} />
