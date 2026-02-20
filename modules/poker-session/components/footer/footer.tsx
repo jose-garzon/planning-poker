@@ -5,9 +5,10 @@ import { useReducedMotion } from 'framer-motion';
 
 interface LobbyFooterProps {
   isHost: boolean;
+  onAddStory?: () => void;
 }
 
-export function LobbyFooter({ isHost }: LobbyFooterProps) {
+export function LobbyFooter({ isHost, onAddStory }: LobbyFooterProps) {
   const shouldReduce = useReducedMotion();
 
   if (isHost) {
@@ -22,6 +23,7 @@ export function LobbyFooter({ isHost }: LobbyFooterProps) {
             variant="secondary"
             type="button"
             className="flex-1 md:flex-none h-10 rounded-[4px] text-[13px] md:text-[11px] font-black px-4 md:px-5"
+            onClick={onAddStory}
             {...(shouldReduce ? { whileTap: {} } : {})}
           >
             <span className="font-black text-base leading-none" aria-hidden="true">

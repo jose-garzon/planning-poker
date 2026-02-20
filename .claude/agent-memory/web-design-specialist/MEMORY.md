@@ -190,6 +190,7 @@ All screens include:
   - Desktop state row at y: 5290, spaced at x: 0, 2000, 4000
   - Voting UI mobile row at y: 7000, spaced at x: 0, 530, 1060
   - Voting UI desktop row at y: 8200, spaced at x: 0, 2000, 4000
+  - Add Story Modal row at y: 9530, frame at x: 0 (1920x1080), annotation at x: 2000
   - All existing screens preserved
 
 **Dev handoff**: All screens have annotation boxes. See animation-specs.md and visual-reference.md. All animations need `prefers-reduced-motion` fallbacks.

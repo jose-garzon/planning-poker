@@ -1,6 +1,8 @@
 'use client';
 
 import { cn } from '@/shared/lib/utils/cn';
+import { useState } from 'react';
+import { AddStoryModal } from './add-story-modal';
 import { LobbyFooter } from './footer/footer';
 import type { GameState } from './game/game';
 import { GameArea } from './game/game';
@@ -80,6 +82,7 @@ function getMobileLabel(state: GameState, isHost: boolean): string {
 
 export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
   const isHost = role === 'host';
+  const [addStoryOpen, setAddStoryOpen] = useState(false);
   const storiesLabel = isHost ? 'STORIES' : 'CURRENT STORY';
   const storiesEmpty = isHost ? 'No stories yet' : 'Waiting for host to start voting...';
   const isGameActive = state !== undefined && (GAME_STATES as string[]).includes(state);
@@ -116,7 +119,16 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
         <GameArea isHost={isHost} state={state} />
       </div>
 
-      <LobbyFooter isHost={isHost} />
+      <LobbyFooter isHost={isHost} onAddStory={() => setAddStoryOpen(true)} />
+
+      <AddStoryModal
+        open={addStoryOpen}
+        onOpenChange={setAddStoryOpen}
+        onSubmitAction={(storyId, title) => {
+          // TODO: integrate with store to persist the story
+          console.log('Add story:', { storyId, title });
+        }}
+      />
     </div>
   );
 }
