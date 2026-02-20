@@ -9,6 +9,7 @@ import { GameArea } from './game/game';
 import { LobbyHeader } from './header/header';
 import { ParticipantsPanel } from './participants/participants';
 import { StoriesPanel } from './stories/stories';
+import { TimerSetupModal } from './timer-setup-modal';
 
 interface SessionLobbyProps {
   sessionId: string;
@@ -83,6 +84,7 @@ function getMobileLabel(state: GameState, isHost: boolean): string {
 export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
   const isHost = role === 'host';
   const [addStoryOpen, setAddStoryOpen] = useState(false);
+  const [timerSetupOpen, setTimerSetupOpen] = useState(false);
   const storiesLabel = isHost ? 'STORIES' : 'CURRENT STORY';
   const storiesEmpty = isHost ? 'No stories yet' : 'Waiting for host to start voting...';
   const isGameActive = state !== undefined && (GAME_STATES as string[]).includes(state);
@@ -119,14 +121,28 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
         <GameArea isHost={isHost} state={state} />
       </div>
 
-      <LobbyFooter isHost={isHost} onAddStory={() => setAddStoryOpen(true)} />
+      <LobbyFooter
+        isHost={isHost}
+        onAddStory={() => setAddStoryOpen(true)}
+        onStartVote={() => setTimerSetupOpen(true)}
+      />
 
       <AddStoryModal
         open={addStoryOpen}
-        onOpenChange={setAddStoryOpen}
+        onOpenChangeAction={setAddStoryOpen}
         onSubmitAction={(storyId, title) => {
           // TODO: integrate with store to persist the story
           console.log('Add story:', { storyId, title });
+        }}
+      />
+
+      <TimerSetupModal
+        open={timerSetupOpen}
+        storyTitle={sortedStories.find((s) => s.status === 'voting')?.title ?? ''}
+        onOpenChangeAction={setTimerSetupOpen}
+        onStartAction={(duration) => {
+          // TODO: integrate with store to start voting
+          console.log('Start vote with duration:', duration);
         }}
       />
     </div>

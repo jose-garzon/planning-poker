@@ -6,9 +6,10 @@ import { useReducedMotion } from 'framer-motion';
 interface LobbyFooterProps {
   isHost: boolean;
   onAddStory?: () => void;
+  onStartVote?: () => void;
 }
 
-export function LobbyFooter({ isHost, onAddStory }: LobbyFooterProps) {
+export function LobbyFooter({ isHost, onAddStory, onStartVote }: LobbyFooterProps) {
   const shouldReduce = useReducedMotion();
 
   if (isHost) {
@@ -36,6 +37,7 @@ export function LobbyFooter({ isHost, onAddStory }: LobbyFooterProps) {
             variant="primary"
             type="button"
             className="flex-1 md:flex-none h-10 rounded-[4px] text-[13px] md:text-[11px] font-black px-4 md:px-5"
+            onClick={onStartVote}
             {...(shouldReduce ? { whileTap: {} } : {})}
           >
             <span aria-hidden="true">▶</span>
