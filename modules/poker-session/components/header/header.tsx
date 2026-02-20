@@ -1,16 +1,14 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { Button } from '@/shared/components/ui/button/button';
+import { useReducedMotion } from 'framer-motion';
 
 interface LobbyHeaderProps {
   sessionId: string;
 }
 
-const tapTransition = { type: 'spring', stiffness: 300, damping: 20 } as const;
-
 export function LobbyHeader({ sessionId }: LobbyHeaderProps) {
   const shouldReduce = useReducedMotion();
-  const tapProps = shouldReduce ? {} : { whileTap: { scale: 0.97 }, transition: tapTransition };
 
   return (
     <header className="h-14 md:h-[72px] bg-poker-bg-page px-4 md:px-6 flex items-center gap-3 md:gap-4 shrink-0">
@@ -23,16 +21,17 @@ export function LobbyHeader({ sessionId }: LobbyHeaderProps) {
         </span>
       </div>
 
-      <motion.button
-        {...tapProps}
+      <Button
+        variant="secondary"
         type="button"
         aria-label="Copy session link"
-        className="w-9 h-9 md:w-12 md:h-12 bg-poker-magenta rounded-[4px] flex items-center justify-center shrink-0 focus:outline-none focus:ring-2 focus:ring-poker-green"
+        className="w-9 h-9 md:w-12 md:h-12 rounded-[4px] p-0 shrink-0"
+        {...(shouldReduce ? { whileTap: {} } : {})}
       >
         <span className="text-base md:text-xl font-[Inter]" aria-hidden="true">
           📋
         </span>
-      </motion.button>
+      </Button>
     </header>
   );
 }

@@ -10,9 +10,20 @@ export interface InputProps extends Omit<ComponentPropsWithoutRef<typeof BaseInp
   error?: string;
   hint?: string;
   className?: string;
+  labelClassName?: string;
+  containerClassName?: string;
 }
 
-export function Input({ label, error, hint, className, id: idProp, ...rest }: InputProps) {
+export function Input({
+  label,
+  error,
+  hint,
+  className,
+  labelClassName,
+  containerClassName,
+  id: idProp,
+  ...rest
+}: InputProps) {
   const generatedId = useId();
   const id = idProp ?? generatedId;
   const errorId = `${id}-error`;
@@ -25,9 +36,9 @@ export function Input({ label, error, hint, className, id: idProp, ...rest }: In
   const describedBy = parts.length > 0 ? parts.join(' ') : undefined;
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className={cn('flex flex-col gap-1', containerClassName)}>
       {label && (
-        <label htmlFor={id} className="text-sm font-medium text-poker-muted">
+        <label htmlFor={id} className={cn('text-sm font-medium text-poker-muted', labelClassName)}>
           {label}
         </label>
       )}

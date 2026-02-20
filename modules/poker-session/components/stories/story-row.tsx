@@ -1,3 +1,8 @@
+'use client';
+
+import { Badge } from '@/shared/components/ui/badge/badge';
+import { motion } from 'framer-motion';
+
 type StoryStatus = 'voting' | 'pending' | 'done';
 
 interface StoryRowProps {
@@ -6,28 +11,27 @@ interface StoryRowProps {
   estimate?: string;
 }
 
-const statusBadge: Record<Exclude<StoryStatus, 'done'>, string> = {
-  voting:
-    'text-[10px] font-bold uppercase rounded px-1.5 py-0.5 bg-poker-green/15 text-poker-green',
-  pending:
-    'text-[10px] font-bold uppercase rounded px-1.5 py-0.5 bg-poker-muted/15 text-poker-muted',
-};
+const rowVariants = {
+  hidden: { opacity: 0, x: -40 },
+  visible: { opacity: 1, x: 0 },
+} as const;
 
-const statusLabel: Record<Exclude<StoryStatus, 'done'>, string> = {
-  voting: 'VOTING NOW',
-  pending: 'PENDING',
-};
+const rowTransition = { type: 'spring', stiffness: 300, damping: 28 } as const;
 
 export function StoryRow({ title, status, estimate }: StoryRowProps) {
   return (
-    <div className="h-12 shrink-0 flex items-center px-3 gap-3 rounded-lg bg-poker-bg-row">
+    <motion.div
+      variants={rowVariants}
+      transition={rowTransition}
+      className="h-12 shrink-0 flex items-center px-3 gap-3 rounded-lg bg-poker-bg-row"
+    >
       <span className="text-poker-text text-sm flex-1 truncate">{title}</span>
 
       {status === 'done' ? (
         <span className="text-poker-text text-sm font-bold shrink-0">{estimate}</span>
       ) : (
-        <span className={`${statusBadge[status]} shrink-0`}>{statusLabel[status]}</span>
+        <Badge variant={status}>{status === 'voting' ? 'VOTING NOW' : 'PENDING'}</Badge>
       )}
-    </div>
+    </motion.div>
   );
 }

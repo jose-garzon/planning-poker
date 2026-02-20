@@ -26,8 +26,14 @@ export function ExpiredView() {
 
         {/* Hourglass icon */}
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" fill="#1A1F3A" stroke="#FFB800" strokeWidth="2" />
-          <text x="32" y="40" textAnchor="middle" fontSize="24" fill="#FFB800">
+          <circle
+            cx="32"
+            cy="32"
+            r="30"
+            className="fill-poker-bg-row stroke-poker-gold"
+            strokeWidth="2"
+          />
+          <text x="32" y="40" textAnchor="middle" fontSize="24" className="fill-poker-gold">
             ⏳
           </text>
         </svg>

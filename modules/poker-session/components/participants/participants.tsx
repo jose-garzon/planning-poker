@@ -1,3 +1,6 @@
+'use client';
+
+import { motion, useReducedMotion } from 'framer-motion';
 import { ParticipantRow } from './participant-row';
 
 type Participant = {
@@ -12,7 +15,14 @@ interface ParticipantsPanelProps {
   total: number;
 }
 
+const listVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.06 } },
+} as const;
+
 export function ParticipantsPanel({ participants, total }: ParticipantsPanelProps) {
+  const shouldReduce = useReducedMotion();
+
   return (
     <div className="flex-1 flex flex-col gap-2 md:gap-3 min-h-0">
       <div className="h-10 md:h-11 bg-poker-bg-header rounded-[4px] px-4 py-2.5 md:py-3 flex items-center gap-2.5 shrink-0">
@@ -25,10 +35,13 @@ export function ParticipantsPanel({ participants, total }: ParticipantsPanelProp
         <span className="ml-auto text-sm font-black text-poker-text">8/{total}</span>
       </div>
 
-      <div
+      <motion.div
         className="flex-1 bg-poker-bg-header rounded-[4px] p-3 md:p-4 flex flex-col gap-2 overflow-y-auto min-h-0"
         aria-live="polite"
         aria-label="Participant list"
+        variants={listVariants}
+        initial={shouldReduce ? 'visible' : 'hidden'}
+        animate="visible"
       >
         {participants.length === 0 ? (
           <p className="text-sm font-bold text-poker-muted text-center py-2">
@@ -45,7 +58,7 @@ export function ParticipantsPanel({ participants, total }: ParticipantsPanelProp
             />
           ))
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

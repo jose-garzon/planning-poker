@@ -4,8 +4,8 @@ import { cn } from '@/shared/lib/utils/cn';
 import { type HTMLMotionProps, motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
-type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'subtle';
+type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 
 export interface ButtonProps extends HTMLMotionProps<'button'> {
   variant?: ButtonVariant;
@@ -21,12 +21,14 @@ const variantClasses: Record<ButtonVariant, string> = {
   ghost:
     'bg-transparent text-poker-text border border-poker-muted hover:border-poker-green hover:text-poker-green',
   danger: 'bg-poker-error text-poker-text hover:brightness-110',
+  subtle: 'bg-poker-bg-row text-poker-muted hover:text-poker-text transition-colors',
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
   sm: 'h-9 px-3 text-sm',
   md: 'h-11 px-4 text-sm font-bold',
   lg: 'h-[52px] px-6 text-base font-bold',
+  xl: 'h-14 w-full px-6 text-[18px] font-black md:h-16 md:text-[20px]',
 };
 
 const tapAnimation = { scale: 0.95 } as const;

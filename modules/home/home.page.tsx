@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '@/shared/components/ui/button/button';
-import { useToast } from '@/shared/components/ui/toast';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -23,12 +22,6 @@ const buttonVariants = {
 const springTransition = { type: 'spring', stiffness: 300, damping: 20 } as const;
 
 export default function HomePage() {
-  const toast = useToast();
-
-  function handleCreateSession() {
-    toast.info({ title: 'Coming soon', description: 'Session creation is not yet implemented.' });
-  }
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-poker-bg-page to-[#1A2847] px-6 py-16">
       <div className="flex w-full max-w-xl flex-col items-center gap-8 text-center">
@@ -70,14 +63,11 @@ export default function HomePage() {
           animate="visible"
           transition={{ ...springTransition, delay: 0.2 }}
         >
-          <Button
-            variant="secondary"
-            size="lg"
-            className="w-full md:w-auto"
-            onClick={handleCreateSession}
-          >
-            Create Session
-          </Button>
+          <Link href="/create">
+            <Button variant="secondary" size="lg" className="w-full md:w-auto">
+              Create Session
+            </Button>
+          </Link>
 
           <Link
             href="/join/demo"

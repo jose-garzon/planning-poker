@@ -1,16 +1,14 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { Button } from '@/shared/components/ui/button/button';
+import { useReducedMotion } from 'framer-motion';
 
 interface LobbyFooterProps {
   isHost: boolean;
 }
 
-const tapTransition = { type: 'spring', stiffness: 300, damping: 20 } as const;
-
 export function LobbyFooter({ isHost }: LobbyFooterProps) {
   const shouldReduce = useReducedMotion();
-  const tapProps = shouldReduce ? {} : { whileTap: { scale: 0.97 }, transition: tapTransition };
 
   if (isHost) {
     return (
@@ -20,25 +18,27 @@ export function LobbyFooter({ isHost }: LobbyFooterProps) {
         </p>
 
         <div className="flex flex-1 md:flex-none items-center gap-2 md:gap-3">
-          <motion.button
-            {...tapProps}
+          <Button
+            variant="secondary"
             type="button"
-            className="flex-1 md:flex-none h-10 bg-poker-magenta text-poker-bg-page text-[13px] md:text-[11px] font-black px-4 md:px-5 rounded-[4px] flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-poker-green"
+            className="flex-1 md:flex-none h-10 rounded-[4px] text-[13px] md:text-[11px] font-black px-4 md:px-5"
+            {...(shouldReduce ? { whileTap: {} } : {})}
           >
             <span className="font-black text-base leading-none" aria-hidden="true">
               +
             </span>
             ADD STORY
-          </motion.button>
+          </Button>
 
-          <motion.button
-            {...tapProps}
+          <Button
+            variant="primary"
             type="button"
-            className="flex-1 md:flex-none h-10 bg-poker-green text-poker-bg-page text-[13px] md:text-[11px] font-black px-4 md:px-5 rounded-[4px] flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-poker-green"
+            className="flex-1 md:flex-none h-10 rounded-[4px] text-[13px] md:text-[11px] font-black px-4 md:px-5"
+            {...(shouldReduce ? { whileTap: {} } : {})}
           >
             <span aria-hidden="true">▶</span>
             START VOTE
-          </motion.button>
+          </Button>
         </div>
       </footer>
     );
@@ -50,13 +50,14 @@ export function LobbyFooter({ isHost }: LobbyFooterProps) {
         <span aria-hidden="true">⏱</span> Waiting for host to reveal results...
       </p>
 
-      <motion.button
-        {...tapProps}
+      <Button
+        variant="subtle"
         type="button"
-        className="h-9 md:h-10 bg-poker-bg-row text-poker-muted text-[11px] font-black px-4 md:px-5 rounded-[4px] hover:text-poker-text transition-colors focus:outline-none focus:ring-2 focus:ring-poker-green"
+        className="h-9 md:h-10 rounded-[4px] text-[11px] font-black px-4 md:px-5"
+        {...(shouldReduce ? { whileTap: {} } : {})}
       >
         LEAVE
-      </motion.button>
+      </Button>
     </footer>
   );
 }
