@@ -32,7 +32,7 @@ export function Modal({
         <Dialog.Popup
           className={cn(
             'fixed top-1/2 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2',
-            'mx-4 flex w-full flex-col gap-5 rounded-[4px] bg-poker-bg-header p-6',
+            'flex w-[calc(100%-2rem)] flex-col gap-5 rounded-[4px] bg-poker-bg-header p-6',
             'transition-[transform,opacity] duration-200',
             'data-[starting-style]:scale-96 data-[starting-style]:opacity-0',
             'data-[ending-style]:scale-96 data-[ending-style]:opacity-0',

@@ -8,6 +8,7 @@ import type { GameState } from './game/game';
 import { GameArea } from './game/game';
 import { LobbyHeader } from './header/header';
 import { ParticipantsPanel } from './participants/participants';
+import { ReconnectingBanner } from './reconnecting-banner';
 import { StoriesPanel } from './stories/stories';
 import { TimerSetupModal } from './timer-setup-modal';
 
@@ -92,6 +93,9 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
   return (
     <div className="flex flex-col h-screen bg-poker-bg-page overflow-hidden">
       <LobbyHeader sessionId={sessionId} />
+
+      {/* TODO: remove — temporary test for reconnecting banner */}
+      <ReconnectingBanner visible retryIn={3} />
 
       <div className="flex-1 flex overflow-hidden">
         {/* Aside — always on desktop, hidden on mobile when game is active */}
