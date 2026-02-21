@@ -8,9 +8,9 @@ import type { GameState } from './game/game';
 import { GameArea } from './game/game';
 import { LobbyHeader } from './header/header';
 import { ParticipantsPanel } from './participants/participants';
-import { ReconnectingBanner } from './reconnecting-banner';
 import { StoriesPanel } from './stories/stories';
 import { TimerSetupModal } from './timer-setup-modal';
+import { VotingView } from './voting-view';
 
 interface SessionLobbyProps {
   sessionId: string;
@@ -86,6 +86,7 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
   const isHost = role === 'host';
   const [addStoryOpen, setAddStoryOpen] = useState(false);
   const [timerSetupOpen, setTimerSetupOpen] = useState(false);
+  const [selectedVote, setSelectedVote] = useState<number | '?' | undefined>(undefined);
   const storiesLabel = isHost ? 'STORIES' : 'CURRENT STORY';
   const storiesEmpty = isHost ? 'No stories yet' : 'Waiting for host to start voting...';
   const isGameActive = state !== undefined && (GAME_STATES as string[]).includes(state);
@@ -93,9 +94,6 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
   return (
     <div className="flex flex-col h-screen bg-poker-bg-page overflow-hidden">
       <LobbyHeader sessionId={sessionId} />
-
-      {/* TODO: remove — temporary test for reconnecting banner */}
-      <ReconnectingBanner visible retryIn={3} />
 
       <div className="flex-1 flex overflow-hidden">
         {/* Aside — always on desktop, hidden on mobile when game is active */}
@@ -116,8 +114,23 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
 
         {/* Mobile game view — only on mobile when game is active */}
         {isGameActive && (
-          <div className="flex-1 flex md:hidden items-center justify-center px-4">
-            <p className="text-poker-muted text-sm">{getMobileLabel(state, isHost)}</p>
+          <div className="flex-1 flex md:hidden overflow-hidden">
+            {state === 'voting' && !isHost ? (
+              <VotingView
+                storyId="US-42"
+                storyTitle="As a user, I can log in with email"
+                seconds={75}
+                totalSeconds={120}
+                votedCount={3}
+                totalCount={5}
+                selectedValue={selectedVote}
+                onSelect={setSelectedVote}
+              />
+            ) : (
+              <div className="flex-1 flex items-center justify-center px-4">
+                <p className="text-poker-muted text-sm">{getMobileLabel(state, isHost)}</p>
+              </div>
+            )}
           </div>
         )}
 

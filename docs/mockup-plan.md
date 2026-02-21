@@ -81,8 +81,8 @@ Static UI mockups following the design in `docs/design/screens.md`. No business 
   - Disabled: opacity 0.5, cursor not-allowed
   - `whileTap={{ scale: 0.95 }}` spring (stiffness: 300, damping: 20)
 - [ ] Create `modules/poker-session/components/card-deck.tsx`
-  - Values: `[0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, '?']`
-  - Grid: 3 cols / 80×80px mobile — 6 cols / 100×100px desktop — 12px gap
+  - Values: `[1, 2, 3, 5, 8, 13, '?']`
+  - Grid: 2 cols in mobile, last row "?" full width
   - Stagger entrance animation 50ms per card
 - [ ] Create `modules/poker-session/components/voting-view.tsx`
   - Story header: Story ID (#00FF88, 20px/900) + title + `<TimerRing>` + vote count "3/5 voted"

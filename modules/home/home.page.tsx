@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '@/shared/components/ui/button/button';
-import { TimerRing } from '@/shared/components/ui/timer-ring/timer-ring';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -76,7 +75,6 @@ export default function HomePage() {
           >
             or join with a link
           </Link>
-          <TimerRing seconds={10} totalSeconds={50} />
         </motion.div>
       </div>
     </main>

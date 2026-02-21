@@ -14,6 +14,7 @@ const config: Config = {
           'bg-header': '#1E2744',
           'bg-row': '#1A1F3A',
           green: '#00FF88',
+          'green-dark': '#00CC6A',
           magenta: '#FF006E',
           gold: '#FFB800',
           blue: '#3B82F6',
