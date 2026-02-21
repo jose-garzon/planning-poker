@@ -9,10 +9,10 @@ export interface StatusDotProps {
   size?: number;
 }
 
-const colorMap: Record<Status, string> = {
-  online: '#00FF88',
-  idle: '#FFB800',
-  offline: '#64748B',
+const classMap: Record<Status, string> = {
+  online: 'bg-poker-green',
+  idle: 'bg-poker-gold',
+  offline: 'bg-poker-muted',
 };
 
 const onlineAnimation = { scale: [1, 1.2, 1], opacity: [1, 0.7, 1] };
@@ -24,17 +24,16 @@ const onlineTransition = {
 const staticAnimation = { scale: 1, opacity: 1 } as const;
 
 export function StatusDot({ status, size = 12 }: StatusDotProps) {
-  const color = colorMap[status];
   const isOnline = status === 'online';
 
   return (
     <motion.span
+      className={classMap[status]}
       style={{
         width: size,
         height: size,
         borderRadius: '50%',
         display: 'inline-block',
-        backgroundColor: color,
         flexShrink: 0,
       }}
       animate={isOnline ? onlineAnimation : staticAnimation}

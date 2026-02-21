@@ -15,10 +15,10 @@ function formatTime(seconds: number): string {
   return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
-function getStrokeColor(seconds: number): string {
-  if (seconds > 60) return '#00FF88';
-  if (seconds > 30) return '#FFB800';
-  return '#EF4444';
+function getColorClass(seconds: number): string {
+  if (seconds > 60) return 'text-poker-green';
+  if (seconds > 30) return 'text-poker-gold';
+  return 'text-poker-error';
 }
 
 const pulseAnimation = { opacity: [1, 0.6, 1] };
@@ -34,12 +34,13 @@ export function TimerRing({ seconds, totalSeconds, size = 80, strokeWidth = 4 }:
   const circumference = 2 * Math.PI * radius;
   const progress = totalSeconds > 0 ? seconds / totalSeconds : 0;
   const strokeDashoffset = circumference * (1 - progress);
-  const strokeColor = getStrokeColor(seconds);
+  const colorClass = getColorClass(seconds);
   const isRed = seconds <= 30;
   const center = size / 2;
 
   return (
     <motion.svg
+      className={colorClass}
       width={size}
       height={size}
       viewBox={`0 0 ${size} ${size}`}
@@ -54,7 +55,7 @@ export function TimerRing({ seconds, totalSeconds, size = 80, strokeWidth = 4 }:
         cy={center}
         r={radius}
         fill="none"
-        stroke="#1E2744"
+        className="stroke-poker-bg-header"
         strokeWidth={strokeWidth}
       />
       {/* Progress arc */}
@@ -63,7 +64,7 @@ export function TimerRing({ seconds, totalSeconds, size = 80, strokeWidth = 4 }:
         cy={center}
         r={radius}
         fill="none"
-        stroke={strokeColor}
+        stroke="currentColor"
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeDasharray={circumference}
@@ -77,7 +78,7 @@ export function TimerRing({ seconds, totalSeconds, size = 80, strokeWidth = 4 }:
         y={center}
         dominantBaseline="middle"
         textAnchor="middle"
-        fill={strokeColor}
+        fill="currentColor"
         fontWeight="bold"
         fontSize={size * 0.2}
         style={{ transition: 'fill 0.3s ease' }}
