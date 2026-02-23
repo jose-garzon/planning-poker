@@ -49,8 +49,7 @@ function HostVotingParticipantRow({ participant, reducedMotion }: HostVotingPart
 
   return (
     <motion.div
-      variants={reducedMotion ? undefined : rowVariants}
-      transition={reducedMotion ? undefined : rowTransition}
+      {...(!reducedMotion && { variants: rowVariants, transition: rowTransition })}
       className={cn(
         'h-11 shrink-0 bg-poker-bg-row rounded-lg flex items-center px-3 gap-2 mb-2',
         !participant.voted && 'opacity-70',
@@ -143,12 +142,10 @@ export function HostVotingView({
               'text-[10px] font-black uppercase tracking-wider leading-none truncate',
               getUrgencyClass(),
             )}
-            animate={shouldReduce ? undefined : { opacity: [1, 0.5, 1] }}
-            transition={
-              shouldReduce
-                ? undefined
-                : { duration: 0.8, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' }
-            }
+            {...(!shouldReduce && {
+              animate: { opacity: [1, 0.5, 1] },
+              transition: { duration: 0.8, repeat: Number.POSITIVE_INFINITY, ease: 'easeInOut' },
+            })}
           >
             {getUrgencyLabel()}
           </motion.p>
@@ -171,9 +168,7 @@ export function HostVotingView({
       {/* Participant list */}
       <div className="flex-1 overflow-y-auto px-4 pb-4">
         <motion.div
-          variants={shouldReduce ? undefined : listVariants}
-          initial={shouldReduce ? undefined : 'hidden'}
-          animate={shouldReduce ? undefined : 'visible'}
+          {...(!shouldReduce && { variants: listVariants, initial: 'hidden', animate: 'visible' })}
         >
           {waitingParticipants.length > 0 && (
             <>

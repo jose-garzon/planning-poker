@@ -9,6 +9,7 @@ import { GameArea } from './game/game';
 import { LobbyHeader } from './header/header';
 import { HostVotingView } from './host-voting-view';
 import { ParticipantsPanel } from './participants/participants';
+import { ResultsView } from './results-view';
 import { StoriesPanel } from './stories/stories';
 import { TimerSetupModal } from './timer-setup-modal';
 import { VotingView } from './voting-view';
@@ -16,7 +17,7 @@ import { VotingView } from './voting-view';
 interface SessionLobbyProps {
   sessionId: string;
   role: 'host' | 'participant';
-  state?: GameState;
+  state?: GameState | undefined;
 }
 
 const MOCK_PARTICIPANTS = [
@@ -61,6 +62,36 @@ const STORY_ORDER = { voting: 0, pending: 1, done: 2 } as const;
 const sortedStories = [...MOCK_STORIES].sort(
   (a, b) => STORY_ORDER[a.status] - STORY_ORDER[b.status],
 );
+
+const MOCK_NORMAL_VOTES = [
+  { name: 'Jordan', value: 5 as const },
+  { name: 'Sam', value: 3 as const },
+  { name: 'Casey', value: 5 as const },
+  { name: 'Riley', value: 8 as const },
+  { name: 'Morgan', value: 5 as const },
+  { name: 'Taylor', value: 2 as const },
+  { name: 'Quinn', value: 13 as const },
+  { name: 'Drew', value: 5 as const },
+];
+
+const MOCK_UNANIMOUS_VOTES = [
+  { name: 'Jordan', value: 5 as const },
+  { name: 'Sam', value: 5 as const },
+  { name: 'Casey', value: 5 as const },
+  { name: 'Riley', value: 5 as const },
+  { name: 'Morgan', value: 5 as const },
+  { name: 'Drew', value: 5 as const },
+];
+
+const MOCK_TIE_VOTES = [
+  { name: 'Jordan', value: 5 as const },
+  { name: 'Sam', value: 8 as const },
+  { name: 'Casey', value: 5 as const },
+  { name: 'Riley', value: 8 as const },
+  { name: 'Morgan', value: 3 as const },
+  { name: 'Quinn', value: 5 as const },
+  { name: 'Drew', value: 8 as const },
+];
 
 const GAME_STATES: GameState[] = ['voting', 'timeup', 'unanimous-results', 'results', 'voted'];
 
@@ -138,11 +169,48 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
                 participants={sortedParticipants}
               />
             )}
-            {state !== 'voting' && (
-              <div className="flex-1 flex items-center justify-center px-4">
-                <p className="text-poker-muted text-sm">{getMobileLabel(state, isHost)}</p>
-              </div>
+            {state === 'unanimous-results' && (
+              <ResultsView
+                storyId="US-42"
+                storyTitle="As a user, I can log in with email"
+                votes={MOCK_UNANIMOUS_VOTES}
+                variant="unanimous"
+                isHost={isHost}
+                onNextStory={() => console.log('Next story')}
+                onRestartVote={() => console.log('Restart vote')}
+              />
             )}
+            {state === 'results' && (
+              <ResultsView
+                storyId="US-42"
+                storyTitle="As a user, I can log in with email"
+                votes={MOCK_NORMAL_VOTES}
+                variant="normal"
+                isHost={isHost}
+                onNextStory={() => console.log('Next story')}
+                onRestartVote={() => console.log('Restart vote')}
+              />
+            )}
+            {state === 'timeup' && (
+              <ResultsView
+                storyId="US-42"
+                storyTitle="As a user, I can log in with email"
+                votes={MOCK_TIE_VOTES}
+                variant="tie"
+                isHost={isHost}
+                onNextStory={() => console.log('Next story')}
+                onChoose={(v) => console.log('Chose:', v)}
+                onRestartVote={() => console.log('Restart vote')}
+              />
+            )}
+            {state !== 'voting' &&
+              state !== 'unanimous-results' &&
+              state !== 'results' &&
+              state !== 'timeup' && (
+                <div className="flex-1 flex items-center justify-center px-4">
+                  <p className="text-poker-muted text-sm">{getMobileLabel(state, isHost)}</p>
+                </div>
+              )}
           </div>
         )}
 
@@ -152,7 +220,7 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
 
       <LobbyFooter
         isHost={isHost}
-        state={state}
+        {...(state !== undefined ? { state } : {})}
         allVoted={allVoted}
         onAddStory={() => setAddStoryOpen(true)}
         onStartVote={() => setTimerSetupOpen(true)}

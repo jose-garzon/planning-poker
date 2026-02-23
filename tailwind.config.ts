@@ -16,6 +16,7 @@ const config: Config = {
           green: '#00FF88',
           'green-dark': '#00CC6A',
           magenta: '#FF006E',
+          secondary: '#FF006E',
           gold: '#FFB800',
           blue: '#3B82F6',
           text: '#E2E8F0',
