@@ -7,6 +7,7 @@ import { LobbyFooter } from './footer/footer';
 import type { GameState } from './game/game';
 import { GameArea } from './game/game';
 import { LobbyHeader } from './header/header';
+import { HostVotingView } from './host-voting-view';
 import { ParticipantsPanel } from './participants/participants';
 import { StoriesPanel } from './stories/stories';
 import { TimerSetupModal } from './timer-setup-modal';
@@ -90,6 +91,7 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
   const storiesLabel = isHost ? 'STORIES' : 'CURRENT STORY';
   const storiesEmpty = isHost ? 'No stories yet' : 'Waiting for host to start voting...';
   const isGameActive = state !== undefined && (GAME_STATES as string[]).includes(state);
+  const allVoted = MOCK_PARTICIPANTS.filter((p) => !p.isHost).every((p) => p.voted);
 
   return (
     <div className="flex flex-col h-screen bg-poker-bg-page overflow-hidden">
@@ -115,7 +117,7 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
         {/* Mobile game view — only on mobile when game is active */}
         {isGameActive && (
           <div className="flex-1 flex md:hidden overflow-hidden">
-            {state === 'voting' && !isHost ? (
+            {state === 'voting' && !isHost && (
               <VotingView
                 storyId="US-42"
                 storyTitle="As a user, I can log in with email"
@@ -126,7 +128,17 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
                 selectedValue={selectedVote}
                 onSelect={setSelectedVote}
               />
-            ) : (
+            )}
+            {state === 'voting' && isHost && (
+              <HostVotingView
+                storyId="US-42"
+                storyTitle="As a user, I can log in with email"
+                seconds={75}
+                totalSeconds={120}
+                participants={sortedParticipants}
+              />
+            )}
+            {state !== 'voting' && (
               <div className="flex-1 flex items-center justify-center px-4">
                 <p className="text-poker-muted text-sm">{getMobileLabel(state, isHost)}</p>
               </div>
@@ -140,8 +152,11 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
 
       <LobbyFooter
         isHost={isHost}
+        state={state}
+        allVoted={allVoted}
         onAddStory={() => setAddStoryOpen(true)}
         onStartVote={() => setTimerSetupOpen(true)}
+        onReveal={() => console.log('Reveal results')}
       />
 
       <AddStoryModal
