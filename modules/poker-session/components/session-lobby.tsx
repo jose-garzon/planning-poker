@@ -8,7 +8,6 @@ import type { GameState } from './game/game';
 import { GameArea } from './game/game';
 import { LobbyHeader } from './header/header';
 import { HostVotingView } from './host-voting-view';
-import { ParticipantsPanel } from './participants/participants';
 import { ResultsView } from './results-view';
 import { StoriesPanel } from './stories/stories';
 import { TimerSetupModal } from './timer-setup-modal';
@@ -136,7 +135,6 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
             isGameActive && 'hidden md:flex',
           )}
         >
-          <ParticipantsPanel participants={sortedParticipants} total={MOCK_PARTICIPANTS.length} />
           <StoriesPanel
             stories={sortedStories}
             isHost={isHost}
@@ -215,7 +213,19 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
         )}
 
         {/* Desktop game area — always rendered, controls its own hidden md:flex */}
-        <GameArea isHost={isHost} state={state} />
+        <GameArea
+          isHost={isHost}
+          state={state}
+          storyId="US-42"
+          storyTitle="As a user, I can log in with email"
+          seconds={75}
+          totalSeconds={120}
+          votedCount={MOCK_NORMAL_VOTES.length}
+          totalCount={MOCK_PARTICIPANTS.filter((p) => !p.isHost).length}
+          participants={sortedParticipants}
+          {...(selectedVote !== undefined ? { selectedValue: selectedVote } : {})}
+          onSelect={setSelectedVote}
+        />
       </div>
 
       <LobbyFooter
