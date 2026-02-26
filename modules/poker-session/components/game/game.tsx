@@ -1,4 +1,9 @@
 import { DesktopHostVotingView } from '../desktop-host-voting-view';
+import {
+  DesktopResultsView,
+  type ResultsParticipantVote,
+  type ResultsVariant,
+} from '../desktop-results-view';
 import { DesktopParticipantVotingView } from '../desktop-voting-view';
 import type { DesktopVotingParticipant } from '../desktop-voting-view';
 
@@ -24,6 +29,12 @@ interface GameAreaProps {
   participants?: VotingParticipant[];
   selectedValue?: number | '?' | undefined;
   onSelect?: ((value: number | '?') => void) | undefined;
+  // Results data (passed through when state is a results state)
+  votes?: ResultsParticipantVote[];
+  variant?: ResultsVariant;
+  onNextStory?: () => void;
+  onChoose?: (value: number) => void;
+  onRestartVote?: () => void;
 }
 
 function getGameLabel(state: GameState | undefined, isHost: boolean): string {
@@ -60,6 +71,11 @@ export function GameArea({
   participants = [],
   selectedValue,
   onSelect,
+  votes,
+  variant,
+  onNextStory,
+  onChoose,
+  onRestartVote,
 }: GameAreaProps) {
   if (state === 'voting') {
     if (isHost) {
@@ -87,6 +103,30 @@ export function GameArea({
           participants={participants as DesktopVotingParticipant[]}
           {...(selectedValue !== undefined ? { selectedValue } : {})}
           {...(onSelect !== undefined ? { onSelect } : {})}
+        />
+      </main>
+    );
+  }
+
+  if (
+    (state === 'results' || state === 'unanimous-results' || state === 'timeup') &&
+    votes !== undefined
+  ) {
+    // Derive variant: unanimous-results forces 'unanimous', otherwise use the passed variant
+    const resolvedVariant: ResultsVariant =
+      state === 'unanimous-results' ? 'unanimous' : (variant ?? 'normal');
+
+    return (
+      <main className="hidden md:flex flex-1 overflow-hidden">
+        <DesktopResultsView
+          storyId={storyId}
+          storyTitle={storyTitle}
+          votes={votes}
+          variant={resolvedVariant}
+          isHost={isHost}
+          {...(onNextStory ? { onNextStory } : {})}
+          {...(onChoose ? { onChoose } : {})}
+          {...(onRestartVote ? { onRestartVote } : {})}
         />
       </main>
     );

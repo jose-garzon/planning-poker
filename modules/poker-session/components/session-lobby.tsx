@@ -225,6 +225,17 @@ export function SessionLobby({ sessionId, role, state }: SessionLobbyProps) {
           participants={sortedParticipants}
           {...(selectedVote !== undefined ? { selectedValue: selectedVote } : {})}
           onSelect={setSelectedVote}
+          votes={
+            state === 'unanimous-results'
+              ? MOCK_UNANIMOUS_VOTES
+              : state === 'timeup'
+                ? MOCK_TIE_VOTES
+                : MOCK_NORMAL_VOTES
+          }
+          variant={state === 'timeup' ? 'tie' : 'normal'}
+          onNextStory={() => console.log('Next story')}
+          onChoose={(v) => console.log('Chose:', v)}
+          onRestartVote={() => console.log('Restart vote')}
         />
       </div>
 
