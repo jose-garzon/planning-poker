@@ -162,6 +162,14 @@ Use for **all data, state, and integration work**. This agent owns everything th
 - Tailwind classes, animation configs, or visual layout decisions
 - Creating new presentational components — hands off a props interface and lets `web-design-specialist` build the visual
 
+**React coding conventions (enforced):**
+- **No unnecessary `useState`** — derive values inline from existing state or props instead of storing them
+- **No unnecessary `useEffect`** — avoid syncing state with other state; prefer event handlers, derived values, or `useTransition`
+- **Always state machines over booleans** — never use multiple boolean flags for async status; use a discriminated union: `type Status = { kind: 'idle' } | { kind: 'loading' } | { kind: 'error'; message: string } | { kind: 'success'; data: T }`
+- **Always `async/await`** — never write `.then()/.catch()` chains; use `try/catch` for error handling
+- **Prefer `use(promise)` over `useEffect` for async data** — for browser-only async APIs (IndexedDB, etc.), use React's `use()` hook with a module-level promise cache. Keep the cache (`Map<string, Promise<T>>`) and the `async` fetch function separate so the cache always returns the same Promise reference (required for `use()` not to re-suspend on every render)
+- **Prefer `useTransition`** over manual loading flags for async operations (form submits, mutations)
+
 ---
 
 ### `product-owner`
