@@ -2,13 +2,17 @@
 
 import { Button } from '@/shared/components/ui/button/button';
 import { useReducedMotion } from 'framer-motion';
-
 interface LobbyHeaderProps {
   sessionId: string;
 }
 
 export function LobbyHeader({ sessionId }: LobbyHeaderProps) {
   const shouldReduce = useReducedMotion();
+  const joinLink = `${typeof window !== 'undefined' ? window.location.origin : ''}/join/${sessionId}`;
+
+  function handleCopy() {
+    navigator.clipboard.writeText(joinLink);
+  }
 
   return (
     <header className="h-14 md:h-[72px] bg-poker-bg-page px-4 md:px-6 flex items-center gap-3 md:gap-4 shrink-0">
@@ -16,9 +20,7 @@ export function LobbyHeader({ sessionId }: LobbyHeaderProps) {
         <span className="text-base md:text-lg font-[Inter]" aria-hidden="true">
           🔗
         </span>
-        <span className="text-xs md:text-sm font-bold text-poker-green">
-          poker.app/join/{sessionId}
-        </span>
+        <span className="text-xs md:text-sm font-bold text-poker-green">{joinLink}</span>
       </div>
 
       <Button
@@ -26,6 +28,7 @@ export function LobbyHeader({ sessionId }: LobbyHeaderProps) {
         type="button"
         aria-label="Copy session link"
         className="w-9 h-9 md:w-12 md:h-12 rounded-[4px] p-0 shrink-0"
+        onClick={handleCopy}
         {...(shouldReduce ? { whileTap: {} } : {})}
       >
         <span className="text-base md:text-xl font-[Inter]" aria-hidden="true">

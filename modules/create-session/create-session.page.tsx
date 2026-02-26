@@ -1,9 +1,11 @@
 'use client';
 
+import { useCreateSession } from '@/modules/poker-session/hooks/use-create-session';
 import { Button } from '@/shared/components/ui/button/button';
 import { Input } from '@/shared/components/ui/input/input';
 import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const cardVariants = {
@@ -27,13 +29,15 @@ const buttonSpring = { type: 'spring', stiffness: 400, damping: 15 } as const;
 
 export default function CreateSessionPage() {
   const shouldReduce = useReducedMotion();
-  const [celebrating, setCelebrating] = useState(false);
+  const [hostName, setHostName] = useState('');
+  const { createSession, status } = useCreateSession();
+  const router = useRouter();
 
-  function handleSubmit(e: { preventDefault(): void }) {
+  async function handleSubmit(e: { preventDefault(): void }) {
     e.preventDefault();
-    setCelebrating(true);
-    setTimeout(() => setCelebrating(false), 400);
-    // future: navigate to the created session
+    if (hostName.trim() === '') return;
+    const id = await createSession(hostName.trim());
+    router.push(`/session/${id}?role=host`);
   }
 
   const cardInitial = shouldReduce ? { opacity: 0, scale: 1 } : cardVariants.hidden;
@@ -79,6 +83,8 @@ export default function CreateSessionPage() {
               maxLength={20}
               autoComplete="name"
               placeholder="Enter your name..."
+              value={hostName}
+              onChange={(e) => setHostName(e.target.value)}
               containerClassName="flex flex-col gap-2 focus-within:[&_label]:text-poker-green"
               labelClassName="text-[12px] font-black tracking-widest text-poker-green transition-colors"
               className="h-14 rounded-[4px] focus:ring-2 focus:ring-poker-green focus:border-transparent border-transparent"
@@ -108,29 +114,18 @@ export default function CreateSessionPage() {
             animate="visible"
             transition={shouldReduce ? { duration: 0 } : { ...fieldEase, delay: 0.35 }}
           >
-            <Link href="/session/1">
-              <Button
-                type="submit"
-                variant="primary"
-                size="xl"
-                whileTap={shouldReduce ? {} : { scale: 0.95 }}
-                animate={celebrating && !shouldReduce ? { scale: [1, 1.05, 1] } : { scale: 1 }}
-                transition={
-                  celebrating && !shouldReduce
-                    ? { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }
-                    : buttonSpring
-                }
-                className={[
-                  'rounded-[4px] w-full transition-[filter]',
-                  'focus-visible:ring-offset-2 focus-visible:ring-offset-poker-bg-page',
-                  celebrating ? 'brightness-110' : '',
-                ]
-                  .filter(Boolean)
-                  .join(' ')}
-              >
-                [ START GAME ]
-              </Button>
-            </Link>
+            <Button
+              type="submit"
+              variant="primary"
+              size="xl"
+              disabled={status.kind === 'loading'}
+              whileTap={shouldReduce ? {} : { scale: 0.95 }}
+              animate={{ scale: 1 }}
+              transition={buttonSpring}
+              className="rounded-[4px] w-full transition-[filter] focus-visible:ring-offset-2 focus-visible:ring-offset-poker-bg-page"
+            >
+              [ START GAME ]
+            </Button>
           </motion.div>
         </form>
 
