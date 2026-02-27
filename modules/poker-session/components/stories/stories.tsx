@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { StoryRow } from './story-row';
 
 type Story = {
+  id: string;
   title: string;
   status: 'voting' | 'pending' | 'done';
   estimate?: string;
@@ -45,7 +46,7 @@ export function StoriesPanel({ stories, isHost, label, emptyText }: StoriesPanel
         {stories.length === 0 ? (
           <p className="text-sm font-bold text-poker-muted text-center py-2">{emptyText}</p>
         ) : (
-          stories.map((s) => <StoryRow key={s.title} title={s.title} status={s.status} />)
+          stories.map((s) => <StoryRow key={s.id} title={s.title} status={s.status} />)
         )}
       </motion.div>
     </div>

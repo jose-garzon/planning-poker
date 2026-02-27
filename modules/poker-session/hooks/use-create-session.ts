@@ -13,12 +13,12 @@ type Status =
 export function useCreateSession() {
   const [status, setStatus] = useState<Status>({ kind: 'idle' });
 
-  async function createSession(hostName: string): Promise<string> {
+  async function createSession(hostName: string, sessionName: string): Promise<string> {
     setStatus({ kind: 'loading' });
 
     try {
       const service = new SessionService(appDB);
-      const session = await service.createSession(hostName);
+      const session = await service.createSession(hostName, sessionName);
       setStatus({ kind: 'success', sessionId: session.id });
       return session.id;
     } catch (err) {

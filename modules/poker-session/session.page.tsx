@@ -24,7 +24,7 @@ function SessionContent({ id, state, role }: SessionPageProps) {
 
   return (
     <SessionLobby
-      sessionId={id}
+      session={session}
       role={role === 'host' ? 'host' : 'participant'}
       state={state as GameState | undefined}
     />

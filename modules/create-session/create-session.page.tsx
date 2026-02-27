@@ -30,13 +30,14 @@ const buttonSpring = { type: 'spring', stiffness: 400, damping: 15 } as const;
 export default function CreateSessionPage() {
   const shouldReduce = useReducedMotion();
   const [hostName, setHostName] = useState('');
+  const [sessionName, setSessionName] = useState('');
   const { createSession, status } = useCreateSession();
   const router = useRouter();
 
   async function handleSubmit(e: { preventDefault(): void }) {
     e.preventDefault();
-    if (hostName.trim() === '') return;
-    const id = await createSession(hostName.trim());
+    if (hostName.trim() === '' || sessionName.trim() === '') return;
+    const id = await createSession(hostName.trim(), sessionName.trim());
     router.push(`/session/${id}?role=host`);
   }
 
@@ -102,6 +103,8 @@ export default function CreateSessionPage() {
               type="text"
               maxLength={20}
               placeholder="e.g. Sprint 42 Planning"
+              value={sessionName}
+              onChange={(e) => setSessionName(e.target.value)}
               containerClassName="flex flex-col gap-2 focus-within:[&_label]:text-poker-green"
               labelClassName="text-[12px] font-black tracking-widest text-poker-green transition-colors"
               className="h-14 rounded-[4px] focus:ring-2 focus:ring-poker-green focus:border-transparent border-transparent"
@@ -118,7 +121,7 @@ export default function CreateSessionPage() {
               type="submit"
               variant="primary"
               size="xl"
-              disabled={status.kind === 'loading'}
+              loading={status.kind === 'loading'}
               whileTap={shouldReduce ? {} : { scale: 0.95 }}
               animate={{ scale: 1 }}
               transition={buttonSpring}

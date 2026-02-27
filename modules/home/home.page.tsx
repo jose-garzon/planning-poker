@@ -3,6 +3,8 @@
 import { Button } from '@/shared/components/ui/button/button';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useHostSessions } from './hooks/use-host-sessions';
+import { HostSessions } from './host-sessions';
 
 const titleVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -22,6 +24,8 @@ const buttonVariants = {
 const springTransition = { type: 'spring', stiffness: 300, damping: 20 } as const;
 
 export default function HomePage() {
+  const status = useHostSessions();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-poker-bg-page to-[#1A2847] px-6 py-16">
       <div className="flex w-full max-w-xl flex-col items-center gap-8 text-center">
@@ -76,6 +80,26 @@ export default function HomePage() {
             or join with a link
           </Link>
         </motion.div>
+
+        {status.kind === 'success' && status.sessions.length > 0 && (
+          <motion.div
+            className="w-full"
+            variants={buttonVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ ...springTransition, delay: 0.3 }}
+          >
+            <HostSessions
+              sessions={status.sessions.map((s) => ({
+                id: s.id,
+                name: s.name,
+                hostName: s.hostName,
+                storyCount: s.stories.length,
+                createdAt: s.createdAt,
+              }))}
+            />
+          </motion.div>
+        )}
       </div>
     </main>
   );

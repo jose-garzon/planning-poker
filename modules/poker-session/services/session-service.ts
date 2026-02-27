@@ -8,7 +8,7 @@ export class SessionService {
 
   constructor(private readonly db: DBStorage) {}
 
-  async createSession(hostName: string): Promise<Session> {
+  async createSession(hostName: string, sessionName: string): Promise<Session> {
     await this.db.open();
 
     const hostId = crypto.randomUUID();
@@ -27,6 +27,7 @@ export class SessionService {
       id: crypto.randomUUID(),
       hostId,
       hostName,
+      name: sessionName,
       createdAt: now,
       expiresAt: new Date(now.getTime() + FIFTEEN_DAYS_MS),
       stories: [],

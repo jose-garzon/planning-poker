@@ -23,6 +23,7 @@ export interface Session {
   id: string;
   hostId: string;
   hostName: string;
+  name: string;
   createdAt: Date;
   expiresAt: Date;
   stories: Story[];
