@@ -22,6 +22,8 @@ export function StoryRow({ title, status, estimate }: StoryRowProps) {
   return (
     <motion.div
       variants={rowVariants}
+      initial="hidden"
+      animate="visible"
       transition={rowTransition}
       className="h-12 shrink-0 flex items-center px-3 gap-3 rounded-lg bg-poker-bg-row"
     >

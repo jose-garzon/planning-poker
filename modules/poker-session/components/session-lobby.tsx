@@ -1,8 +1,10 @@
 'use client';
 
-import type { Session } from '@/modules/poker-session/services/types';
+import { StoryService } from '@/modules/poker-session/services/story-service';
+import type { Session, Story } from '@/modules/poker-session/services/types';
 import { cn } from '@/shared/lib/utils/cn';
-import { useState } from 'react';
+import { appDB } from '@/shared/storage/app-db';
+import { useState, useTransition } from 'react';
 import { AddStoryModal } from './add-story-modal';
 import { LobbyFooter } from './footer/footer';
 import type { GameState } from './game/game';
@@ -76,16 +78,18 @@ export function SessionLobby({ session, role, state }: SessionLobbyProps) {
   const [addStoryOpen, setAddStoryOpen] = useState(false);
   const [timerSetupOpen, setTimerSetupOpen] = useState(false);
   const [selectedVote, setSelectedVote] = useState<number | '?' | undefined>(undefined);
+  const [localStories, setLocalStories] = useState<Story[]>(session.stories);
+  const [, startTransition] = useTransition();
   const storiesLabel = isHost ? 'STORIES' : 'CURRENT STORY';
   const storiesEmpty = 'No stories yet';
   const isGameActive = state !== undefined && (GAME_STATES as string[]).includes(state);
 
   const currentStory = session.currentStoryId
-    ? session.stories.find((s) => s.id === session.currentStoryId)
+    ? localStories.find((s) => s.id === session.currentStoryId)
     : undefined;
 
   const STORY_ORDER = { voting: 0, pending: 1, done: 2 } as const;
-  const stories = session.stories
+  const stories = localStories
     .map((s) => ({
       id: s.id,
       title: s.title,
@@ -234,8 +238,19 @@ export function SessionLobby({ session, role, state }: SessionLobbyProps) {
         open={addStoryOpen}
         onOpenChangeAction={setAddStoryOpen}
         onSubmitAction={(storyId, title) => {
-          // TODO: integrate with store to persist the story
-          console.log('Add story:', { storyId, title });
+          const optimistic: Story = {
+            id: storyId,
+            title,
+            status: 'pending',
+            score: null,
+            votes: {},
+            votingStartedAt: null,
+            votingEndedAt: null,
+          };
+          setLocalStories((prev) => [...prev, optimistic]);
+          startTransition(async () => {
+            await new StoryService(appDB).addStory(session.id, { id: storyId, title });
+          });
         }}
       />
 
